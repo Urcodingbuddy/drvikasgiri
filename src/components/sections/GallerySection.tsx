@@ -24,7 +24,7 @@ export default function GallerySection() {
           <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">
             Our Space
           </p>
-          <h2 className="text-4xl font-bold text-white">The Atelier Gallery</h2>
+          <h2 className="text-5xl text-primary" style={{ fontFamily: 'var(--font-cursive)' }}>The Atelier Gallery</h2>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-5">

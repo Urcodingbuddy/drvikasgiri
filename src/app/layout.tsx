@@ -43,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${outfit.className} ${greatVibes.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${outfit.className} ${greatVibes.variable}`}>
       <body className="antialiased bg-background">
         <ScrollReveal />
         {children}

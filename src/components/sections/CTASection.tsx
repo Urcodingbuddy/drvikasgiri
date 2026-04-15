@@ -10,7 +10,7 @@ export default function CTASection() {
           <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-4">
             Ready to Begin?
           </p>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 md:mb-5 leading-tight">
+          <h2 className="text-3xl md:text-5xl text-white mb-4 md:mb-5 leading-tight">
             Book Your Appointment Today
           </h2>
           <p className="text-gray-400 max-w-xl mx-auto mb-8 md:mb-10 leading-relaxed text-sm md:text-base">

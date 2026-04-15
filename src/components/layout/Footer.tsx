@@ -1,4 +1,3 @@
-const links = ['Privacy', 'Terms', 'Accessibility', 'Support'];
 
 export default function Footer() {
   return (
@@ -18,18 +17,6 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-        {/* Links */}
-        <div className="flex flex-wrap justify-center gap-6">
-          {links.map((link) => (
-            <a
-              key={link}
-              href="#"
-              className="text-gray-500 hover:text-white text-[10px] uppercase tracking-widest transition-colors duration-200"
-            >
-              {link}
-            </a>
-          ))}
-        </div>
 
         <p className="text-gray-600 text-[10px] uppercase tracking-widest">
           © 2025 Dr. Vikas. All rights reserved.

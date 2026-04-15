@@ -163,7 +163,7 @@ export default function HeroSection() {
           >
             <Image
               src="/doctor.png"
-              alt="Dr. Emily Hart — Health Specialist"
+              alt="Dr. Vikas Giri — Dental Specialist"
               fill
               sizes="(max-width: 768px) 90vw, 45vw"
               className="object-contain object-bottom drop-shadow-2xl"
@@ -174,7 +174,7 @@ export default function HeroSection() {
 
           {/* Glassmorphic CTA Pill - overlays doctor image */}
           <div
-            className="absolute bottom-[18%] left-1/2 z-20 flex w-max -translate-x-1/2 items-center rounded-full border border-white/10 bg-black/55 p-1.5 shadow-2xl backdrop-blur-2xl"
+            className="absolute bottom-[8%] left-1/2 z-20 flex w-max -translate-x-1/2 items-center rounded-full border border-white/10 bg-black/55 p-1.5 shadow-2xl backdrop-blur-2xl"
             style={{ animation: "fadeUp 0.6s ease-out 0.8s both" }}
           >
             <button className="group flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-[#141414] shadow-lg md:px-8 md:py-3 md:text-base lg:px-10">

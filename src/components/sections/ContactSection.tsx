@@ -5,8 +5,13 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 const contactInfo = [
   {
     icon: Phone,
-    label: 'Phone',
-    value: '+1 (555) 012-3456',
+    label: 'WhatsApp',
+    value: '+971 58 104 9475',
+  },
+  {
+    icon: Phone,
+    label: 'Call',
+    value: '+971 0581049475',
   },
   {
     icon: Mail,
@@ -34,10 +39,12 @@ export default function ContactSection() {
     <section className="max-w-6xl mx-auto px-4 md:px-6 py-16 md:py-24 overflow-hidden grid md:grid-cols-2 gap-10 md:gap-16">
       {/* Left — contact info */}
       <div data-reveal="left">
-        <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">
+        <p 
+        className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">
           Get in Touch
         </p>
-        <h2 className="text-4xl font-bold text-white mb-12 leading-tight">
+        <h2
+        className="text-4xl font-bold text-white mb-12 leading-tight">
           Visit the Atelier
         </h2>
 
@@ -74,7 +81,7 @@ export default function ContactSection() {
             const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value.trim();
 
             const text = `Hello Dr. Vikas,\n\nMy name is ${name}.\nI am interested in: ${service}.\n\n${message}\n\nLooking forward to hearing from you.`;
-            const url = `https://wa.me/919244571995?text=${encodeURIComponent(text)}`;
+            const url = `https://wa.me/971581049475?text=${encodeURIComponent(text)}`;
             window.open(url, '_blank');
           }}
         >

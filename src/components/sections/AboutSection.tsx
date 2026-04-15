@@ -35,7 +35,7 @@ export default function AboutSection() {
 
           {/* Image wrapper */}
           <div className="relative overflow-hidden rounded-2xl bg-[var(--color-surface-3)]">
-            <div className="aspect-[3/4] w-full">
+            <div className="aspect-[3/4] w-full relative">
               <Image
                 src="/dental_treatment.png"
                 alt="Dr. Vikas — professional dental specialist"
