@@ -173,18 +173,15 @@ export default function HeroSection() {
             className="absolute bottom-[8%] left-1/2 z-20 flex w-max -translate-x-1/2 items-center rounded-full border border-white/10 bg-black/55 p-1.5 shadow-2xl backdrop-blur-2xl"
             style={{ animation: "fadeUp 0.6s ease-out 0.8s both" }}
           >
-            <button className="group flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-[#141414] shadow-lg md:px-8 md:py-3 md:text-base lg:px-10">
-              View Services
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="size-4 md:size-6 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                viewBox="0 -960 960 960"
-                fill="#141414"
-              >
-                <path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" />
-              </svg>
+            <button onClick={() => document.getElementById('service')?.scrollIntoView({ behavior: 'smooth' })} className="group flex items-center gap-4 rounded-full bg-primary py-1.5 pl-6 pr-1.5 text-base font-semibold text-[#141414] shadow-lg">
+              <span>View Services</span>
+              <span className="flex h-[33px] w-[33px] shrink-0 items-center justify-center rounded-full bg-black/80">
+                <svg xmlns="http://www.w3.org/2000/svg" className="size-[16.5px] transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" viewBox="0 -960 960 960" fill="white">
+                  <path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" />
+                </svg>
+              </span>
             </button>
-            <button className="rounded-full px-5 py-2.5 text-sm font-semibold text-white md:px-8 md:py-3 md:text-base lg:px-10">
+            <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="rounded-full px-5 py-1.5 text-sm font-semibold text-white md:px-7">
               Book Free Consultation
             </button>
           </div>

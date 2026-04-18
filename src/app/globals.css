@@ -209,6 +209,41 @@ html {
   will-change: auto;
 }
 
+/* ── Pen handwriting animation ── */
+.pen-text {
+  clip-path: inset(0 100% 0 0);
+}
+.pen-text.pen-writing {
+  animation: penWrite 2.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes penWrite {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+
+.pen-dot {
+  position: absolute;
+  top: 40%;
+  left: 0%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ECB044;
+  box-shadow: 0 0 10px rgba(236, 176, 68, 0.7), 0 0 20px rgba(236, 176, 68, 0.3);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+.pen-dot.pen-dot-move {
+  animation: penDotMove 2.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes penDotMove {
+  0%  { left: 0%;   opacity: 1; }
+  92% { opacity: 1; }
+  100%{ left: 100%; opacity: 0; }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
