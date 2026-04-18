@@ -5,12 +5,7 @@ import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 const contactInfo = [
   {
     icon: Phone,
-    label: 'WhatsApp',
-    value: '+971 58 104 9475',
-  },
-  {
-    icon: Phone,
-    label: 'Call',
+    label: 'Call / WhatsApp',
     value: '+971 58 104 9475',
   },
   {
