@@ -16,24 +16,71 @@ const greatVibes = Great_Vibes({
 })
 
 export const metadata: Metadata = {
-  title: 'Dr. Vikas — Health Specialist',
-  description: 'Dedicated to helping you achieve mental clarity and emotional well being through compassionate, personalized care.',
+  metadataBase: new URL('https://drvikasgiri.vercel.app'),
+  title: 'Dr. Vikas Giri | Veneers & Cosmetic Dentist, Dubai',
+  description:
+    "Dr. Vikas Giri is a veneers specialist and cosmetic dentist in Dubai with 23+ years of experience in smile design, veneers, implants, and advanced dental care.",
+  openGraph: {
+    title: 'Dr. Vikas Giri | Veneers & Cosmetic Dentist, Dubai',
+    description:
+      "Experience refined cosmetic dentistry with Dr. Vikas Giri in Dubai. Veneers, smile makeovers, implants, and advanced dental care backed by 23+ years of excellence.",
+    url: 'https://drvikasgiri.vercel.app',
+    siteName: 'Dr. Vikas Giri',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Dr. Vikas Giri | Veneers & Cosmetic Dentist, Dubai',
+    description:
+      "Veneers, smile makeovers, implants, and advanced dental care in Dubai with Dr. Vikas Giri.",
+  },
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/favicon.ico',
+  },
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': ['LocalBusiness', 'Dentist'],
+  name: 'Dr. Vikas Giri',
+  description:
+    'Dr. Vikas Giri is a veneers specialist and cosmetic dentist in Dubai with 23+ years of experience in smile design, veneers, implants, and advanced dental care.',
+  url: 'https://drvikasgiri.vercel.app',
+  telephone: '+971581049475',
+  email: 'contact@drvikas.com',
+  image: 'https://drvikasgiri.vercel.app/doctor.png',
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Dubai',
+    addressCountry: 'AE',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: '25.2048',
+    longitude: '55.2708',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Dubai',
+  },
+  medicalSpecialty: 'Dentistry',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Dental Services',
+    itemListElement: [
+      'Veneers',
+      'Smile Makeovers',
+      'Dental Implants',
+      'Teeth Whitening',
+      'Root Canal',
+      'Laser Dentistry',
+      'Pediatric Dentistry',
+    ].map((service) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'MedicalProcedure', name: service },
+    })),
   },
 }
 
@@ -45,6 +92,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${outfit.className} ${greatVibes.variable}`}>
       <body className="antialiased bg-background">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <ScrollReveal />
         {children}
       </body>

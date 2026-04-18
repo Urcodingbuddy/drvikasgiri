@@ -3,21 +3,17 @@
 import Image from "next/image";
 
 const quoteWords = [
-  "Dedicated",
-  "to",
-  "helping",
-  "you",
-  "achieve",
-  "mental",
-  "clarity",
+  "Where",
+  "expertise",
+  "meets",
+  "elegance,",
   "and",
-  "emotional",
-  "well",
-  "being",
-  "through",
-  "compassionate,",
-  "personalized",
-  "care.",
+  "every",
+  "smile",
+  "is",
+  "designed",
+  "to",
+  "perfection.",
 ];
 
 export default function HeroSection() {
@@ -64,9 +60,9 @@ export default function HeroSection() {
         style={{ animation: "fadeUp 0.6s ease-out 0.2s both" }}
       >
         <h1 className="relative mb-2 inline-block text-center text-3xl leading-tight tracking-tight text-white sm:text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl">
-          I&apos;m <span className="text-primary">Dr. Vikas,</span>
+          <span className="text-primary">Dr. Vikas Giri</span>
           <br />
-          Dental Specialist
+          Veneers &amp; Cosmetic Dentist
           {/* Bottom left cyan vector slashes relative to the text */}
           <div
             className="absolute -left-12 bottom-2 hidden -rotate-12 opacity-90 md:block"
@@ -163,7 +159,7 @@ export default function HeroSection() {
           >
             <Image
               src="/doctor.png"
-              alt="Dr. Vikas Giri — Dental Specialist"
+              alt="Dr. Vikas Giri — Veneers and Cosmetic Dentist"
               fill
               sizes="(max-width: 768px) 90vw, 45vw"
               className="object-contain object-bottom drop-shadow-2xl"
@@ -178,7 +174,7 @@ export default function HeroSection() {
             style={{ animation: "fadeUp 0.6s ease-out 0.8s both" }}
           >
             <button className="group flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-[#141414] shadow-lg md:px-8 md:py-3 md:text-base lg:px-10">
-              Explore
+              View Services
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="size-4 md:size-6 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
@@ -189,7 +185,7 @@ export default function HeroSection() {
               </svg>
             </button>
             <button className="rounded-full px-5 py-2.5 text-sm font-semibold text-white md:px-8 md:py-3 md:text-base lg:px-10">
-              Checkup
+              Book Free Consultation
             </button>
           </div>
         </div>

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const navLinks = ['Home', 'About', 'Service', 'Testimonial', 'Blog', 'Contact'];
+const navLinks = ['Home', 'About', 'Service', 'Testimonial', 'Contact'];
 
 const navToSection: Record<string, string> = {
   Home: 'home',
@@ -20,8 +20,19 @@ export default function Navigation() {
   const [active, setActive] = useState('Home');
   const [indicator, setIndicator] = useState({ left: 0, width: 0, opacity: 0 });
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const buttonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 767px)');
+    const syncViewport = () => setIsMobile(media.matches);
+
+    syncViewport();
+    media.addEventListener('change', syncViewport);
+
+    return () => media.removeEventListener('change', syncViewport);
+  }, []);
 
   useEffect(() => {
     function updateIndicator() {
@@ -63,86 +74,89 @@ export default function Navigation() {
     if (id) document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  if (isMobile === null) {
+    return null;
+  }
+
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50 pointer-events-none"
       style={{ animation: 'fadeDown 0.6s ease-out both' }}
     >
-      {/* Inner wrapper — margin keeps content off screen edges */}
       <div className="mx-4 mt-4">
-
-        {/* ── Desktop pill ── */}
-        <div
-          ref={containerRef}
-          className="relative hidden md:flex max-w-5xl mx-auto items-center justify-between rounded-full border border-white/10 bg-black/85 px-2 py-1.5 shadow-2xl backdrop-blur-md pointer-events-auto"
-        >
+        {!isMobile ? (
           <div
-            className="absolute bottom-1.5 top-1.5 rounded-full bg-primary shadow-lg transition-all duration-300 ease-out"
-            style={{ left: indicator.left, width: indicator.width, opacity: indicator.opacity }}
-          />
-          <div className="relative z-10 flex items-center gap-1">
-            {navLinks.slice(0, 3).map((link) => (
-              <button
-                key={link}
-                ref={(el) => { buttonRefs.current[link] = el; }}
-                onClick={() => handleNav(link)}
-                className={`relative rounded-full px-6 py-2.5 text-sm font-semibold transition-all duration-300 ${active === link ? 'text-[#141414]' : 'text-gray-300 hover:text-white'}`}
-              >{link}</button>
-            ))}
-          </div>
-          <div
-            className="relative z-10 flex items-center justify-center px-4 cursor-pointer"
-            onClick={() => handleNav('Home')}
+            ref={containerRef}
+            className="relative max-w-5xl mx-auto flex items-center justify-between rounded-full border border-white/10 bg-black/85 px-2 py-1.5 shadow-2xl backdrop-blur-md pointer-events-auto"
           >
-            <span className="text-3xl text-primary" style={{ fontFamily: 'var(--font-cursive)' }}>Dr. Vikas</span>
+            <div
+              className="absolute bottom-1.5 top-1.5 rounded-full bg-primary shadow-lg transition-all duration-300 ease-out"
+              style={{ left: indicator.left, width: indicator.width, opacity: indicator.opacity }}
+            />
+            <div className="relative z-10 flex items-center gap-1">
+              {navLinks.slice(0, 3).map((link) => (
+                <button
+                  key={link}
+                  ref={(el) => { buttonRefs.current[link] = el; }}
+                  onClick={() => handleNav(link)}
+                  className={`relative rounded-full px-6 py-2.5 text-sm font-semibold transition-all duration-300 ${active === link ? 'text-[#141414]' : 'text-gray-300 hover:text-white'}`}
+                >{link}</button>
+              ))}
+            </div>
+            <div
+              className="relative z-10 flex items-center justify-center px-4 cursor-pointer"
+              onClick={() => handleNav('Home')}
+            >
+              <span className="text-3xl text-primary" style={{ fontFamily: 'var(--font-cursive)' }}>Dr. Vikas</span>
+            </div>
+            <div className="relative z-10 flex items-center gap-1">
+              {navLinks.slice(3).map((link) => (
+                <button
+                  key={link}
+                  ref={(el) => { buttonRefs.current[link] = el; }}
+                  onClick={() => handleNav(link)}
+                  className={`relative rounded-full px-6 py-2.5 text-sm font-semibold transition-all duration-300 ${active === link ? 'text-[#141414]' : 'text-gray-300 hover:text-white'}`}
+                >{link}</button>
+              ))}
+            </div>
           </div>
-          <div className="relative z-10 flex items-center gap-1">
-            {navLinks.slice(3).map((link) => (
+        ) : (
+          <>
+            <div className="flex items-center justify-between rounded-full border border-white/10 bg-black/85 px-4 py-2.5 shadow-2xl backdrop-blur-md pointer-events-auto">
+              <div className="cursor-pointer" onClick={() => handleNav('Home')}>
+                <span className="text-2xl text-primary" style={{ fontFamily: 'var(--font-cursive)' }}>Dr. Vikas</span>
+              </div>
               <button
-                key={link}
-                ref={(el) => { buttonRefs.current[link] = el; }}
-                onClick={() => handleNav(link)}
-                className={`relative rounded-full px-6 py-2.5 text-sm font-semibold transition-all duration-300 ${active === link ? 'text-[#141414]' : 'text-gray-300 hover:text-white'}`}
-              >{link}</button>
-            ))}
-          </div>
-        </div>
+                onClick={() => setMenuOpen((o) => !o)}
+                className="flex flex-col justify-center items-center w-8 h-8 gap-1.5"
+                aria-label="Toggle menu"
+                aria-expanded={menuOpen}
+              >
+                <span className={`block h-0.5 w-5 bg-white rounded-full transition-all duration-300 ${menuOpen ? 'translate-y-2 rotate-45' : ''}`} />
+                <span className={`block h-0.5 w-5 bg-white rounded-full transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
+                <span className={`block h-0.5 w-5 bg-white rounded-full transition-all duration-300 ${menuOpen ? '-translate-y-2 -rotate-45' : ''}`} />
+              </button>
+            </div>
 
-        {/* ── Mobile pill ── */}
-        <div className="flex md:hidden items-center justify-between rounded-full border border-white/10 bg-black/85 px-4 py-2.5 shadow-2xl backdrop-blur-md pointer-events-auto">
-          <div className="cursor-pointer" onClick={() => handleNav('Home')}>
-            <span className="text-2xl text-primary" style={{ fontFamily: 'var(--font-cursive)' }}>Dr. Vikas</span>
-          </div>
-          <button
-            onClick={() => setMenuOpen((o) => !o)}
-            className="flex flex-col justify-center items-center w-8 h-8 gap-1.5"
-            aria-label="Toggle menu"
-          >
-            <span className={`block h-0.5 w-5 bg-white rounded-full transition-all duration-300 ${menuOpen ? 'translate-y-2 rotate-45' : ''}`} />
-            <span className={`block h-0.5 w-5 bg-white rounded-full transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
-            <span className={`block h-0.5 w-5 bg-white rounded-full transition-all duration-300 ${menuOpen ? '-translate-y-2 -rotate-45' : ''}`} />
-          </button>
-        </div>
-
-        {/* ── Mobile dropdown ── */}
-        <div
-          className={`md:hidden mt-2 rounded-2xl border border-white/10 bg-black/90 backdrop-blur-md pointer-events-auto overflow-hidden transition-all duration-300 ease-out ${
-            menuOpen ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0'
-          }`}
-        >
-          <div className="grid grid-cols-3 gap-1 p-3">
-            {navLinks.map((link) => (
-              <button
-                key={link}
-                onClick={() => handleNav(link)}
-                className={`rounded-xl px-3 py-3 text-sm font-semibold transition-all duration-200 ${
-                  active === link ? 'bg-primary text-[#141414]' : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                }`}
-              >{link}</button>
-            ))}
-          </div>
-        </div>
-
+            <div
+              className={`mt-2 rounded-2xl border border-white/10 bg-black/90 backdrop-blur-md pointer-events-auto overflow-hidden transition-all duration-300 ease-out ${
+                menuOpen ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div className="grid grid-cols-3 gap-1 p-3">
+                {navLinks.map((link) => (
+                  <button
+                    key={link}
+                    onClick={() => handleNav(link)}
+                    className={`rounded-xl px-3 py-3 text-sm font-semibold transition-all duration-200 ${
+                      active === link ? 'bg-primary text-[#141414]' : 'text-gray-300 hover:bg-white/5 hover:text-white'
+                    }`}
+                  >{link}</button>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </nav>
   );

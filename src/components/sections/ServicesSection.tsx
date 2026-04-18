@@ -15,20 +15,20 @@ const RootIcon = () => (
 const services = [
   {
     icon: <Sparkles className="size-8 text-primary" strokeWidth={1.5} />,
-    title: 'Teeth Whitening',
-    desc: 'Professional grade studio whitening for a natural, high-fashion radiance.',
-    featured: false,
-  },
-  {
-    icon: <ToothIcon />,
-    title: 'Dental Implants',
-    desc: 'Titanium and Zirconium precision engineering for a life-long foundation.',
+    title: 'Veneers & Smile Makeovers',
+    desc: 'Elegant, natural-looking smile transformations tailored to each individual with refined aesthetic precision.',
     featured: true,
   },
   {
+    icon: <ToothIcon />,
+    title: 'Teeth Whitening',
+    desc: 'Professional cosmetic whitening designed to create a brighter, confident, naturally polished smile.',
+    featured: false,
+  },
+  {
     icon: <RootIcon />,
-    title: 'Root Canal',
-    desc: 'Advanced micro-endodontics designed for absolute comfort and tooth preservation.',
+    title: 'Advanced Endodontics',
+    desc: 'Pain-free, precision-driven root canal treatments focused on comfort and long-term tooth preservation.',
     featured: false,
   },
 ];
@@ -43,12 +43,12 @@ export default function ServicesSection() {
             <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">
               What We Offer
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight max-w-md">
+            <h2 className="text-3xl md:text-4xl text-white leading-tight tracking-tight max-w-md">
               Signature Services of the Atelier
             </h2>
           </div>
           <p className="text-gray-400 max-w-sm text-sm leading-relaxed">
-            Crafting functional art through advanced biological dentistry.
+            Cosmetic and restorative treatments shaped by precision, comfort, and naturally beautiful results.
           </p>
         </div>
 

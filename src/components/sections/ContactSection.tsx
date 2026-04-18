@@ -11,7 +11,7 @@ const contactInfo = [
   {
     icon: Phone,
     label: 'Call',
-    value: '+971 0581049475',
+    value: '+971 58 104 9475',
   },
   {
     icon: Mail,
@@ -21,7 +21,7 @@ const contactInfo = [
   {
     icon: MapPin,
     label: 'Location',
-    value: '1200 Luxury Lane, Suite 400\nBeverly Hills, CA 90210',
+    value: 'Dubai, UAE',
   },
 ];
 
@@ -44,8 +44,8 @@ export default function ContactSection() {
           Get in Touch
         </p>
         <h2
-        className="text-4xl font-bold text-white mb-12 leading-tight">
-          Visit the Atelier
+        className="text-4xl tracking-tight text-white mb-12 leading-tight">
+          Book Your Consultation
         </h2>
 
         <div className="space-y-8">
@@ -80,7 +80,8 @@ export default function ContactSection() {
             const service = (form.elements.namedItem('service') as HTMLSelectElement).value;
             const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value.trim();
 
-            const text = `Hello Dr. Vikas,\n\nMy name is ${name}.\nI am interested in: ${service}.\n\n${message}\n\nLooking forward to hearing from you.`;
+            const intro = 'Hi Dr. Vikas, I would like to book a consultation.';
+            const text = `${intro}\n\nMy name is ${name}.\nI am interested in: ${service}.${message ? `\n\n${message}` : ''}`;
             const url = `https://wa.me/971581049475?text=${encodeURIComponent(text)}`;
             window.open(url, '_blank');
           }}
@@ -127,7 +128,7 @@ export default function ContactSection() {
             type="submit"
             className="w-full bg-primary text-[#141414] py-3.5 rounded-full font-bold uppercase tracking-widest text-xs hover:brightness-110 active:scale-95 transition-all duration-200 mt-2"
           >
-            Send on WhatsApp
+            Book on WhatsApp
           </button>
         </form>
       </div>

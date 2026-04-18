@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from 'react';
 const stats = [
   { target: 23,   suffix: '+', label: 'Years Experience' },
   { target: 5000, suffix: '+', label: 'Patients Served' },
-  { target: 1200, suffix: '+', label: 'Surgeries Performed' },
-  { target: 15,   suffix: '+', label: 'Global Awards' },
+  { target: 3000, suffix: '+', label: 'Implants Placed' },
+  { target: 2,    suffix: '', label: 'Languages Spoken' },
 ];
 
 function useCountUp(target: number, duration = 1800, start = false) {

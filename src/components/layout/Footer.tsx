@@ -1,5 +1,7 @@
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-background pt-16 pb-10 overflow-hidden">
       {/* Big cursive name — ~80vw */}
@@ -19,7 +21,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
 
         <p className="text-gray-600 text-[10px] uppercase tracking-widest">
-          © 2025 Dr. Vikas. All rights reserved.
+          © {currentYear} Dr. Vikas Giri. All rights reserved.
         </p>
 
         {/* Social */}

@@ -9,8 +9,8 @@ const highlights = [
   },
   {
     icon: Award,
-    title: 'Internationally Certified',
-    desc: 'Trained and certified across India, Germany, and the US.',
+    title: 'International Fellowships',
+    desc: 'Fellow of the Royal College of Surgery, Liverpool and the International Council for Dental Research.',
   },
   {
     icon: Microscope,
@@ -38,7 +38,7 @@ export default function AboutSection() {
             <div className="aspect-[3/4] w-full relative">
               <Image
                 src="/dental_treatment.png"
-                alt="Dr. Vikas — professional dental specialist"
+                alt="Dr. Vikas Giri providing advanced cosmetic dental care"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover object-top"
@@ -54,8 +54,8 @@ export default function AboutSection() {
               <Award className="size-4 text-primary" strokeWidth={1.5} />
             </div>
             <div>
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-primary">Certified</p>
-              <p className="text-sm font-bold text-white">ICI Accredited</p>
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-primary">Credentials</p>
+              <p className="text-sm font-bold text-white">RCS Liverpool Fellow</p>
             </div>
           </div>
         </div>
@@ -73,17 +73,32 @@ export default function AboutSection() {
 
           {/* Headline */}
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold leading-tight text-white xl:text-4xl">
+            <h2 className="text-3xl leading-tight tracking-tight text-white xl:text-4xl">
               Crafting Smiles,{' '}
               <span className="text-primary">Restoring</span>{' '}
               Confidence
             </h2>
             <p className="text-sm leading-relaxed text-gray-400">
-              Dr. Vikas has dedicated over two decades to perfecting the harmony
-              between oral health and aesthetic beauty. Trained at leading global
-              institutes, he believes every smile tells a story that deserves a
-              masterpiece.
+              Dr. Vikas Giri has spent more than two decades refining the balance
+              between clinical precision and aesthetic dentistry. With a strong
+              focus on veneers, smile design, and advanced restorative care, he
+              creates naturally beautiful results tailored to each patient.
             </p>
+          </div>
+
+          <div
+            data-reveal
+            style={{ '--reveal-delay': '0.1s' } as React.CSSProperties}
+            className="flex flex-wrap gap-3"
+          >
+            {['Hindi (Native)', 'English (Proficient)', 'Speaker at Dentathon, New Delhi'].map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold tracking-wide text-primary"
+              >
+                {item}
+              </span>
+            ))}
           </div>
 
           {/* Highlights */}

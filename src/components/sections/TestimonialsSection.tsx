@@ -1,33 +1,28 @@
+'use client';
+
+import { useState } from 'react';
+
 const testimonials = [
   {
     quote:
       'The attention to detail is remarkable. Dr. Vikas explained every step, and the result was far beyond my expectations. Truly a dental atelier.',
     name: 'Julian Thorne',
-    role: 'Architect',
-    avatar:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuDnHgX1Tn8wQii-uI7180HTqWAkZ8a04zLhj8swfVj5xFMpoPpnb6qc92E389gh5aOl4E38CIMFRH4vzs8_GlNKCCHt4PPuP61m-7Vvx9mQmbgH0mvAJfsS4BjsVxSZSvw3KrFqpTcohWmHpUh2T9CAH-nwparvF0DpkQt0OsOqTD_l-b2bO7ZwTRSqkp4zb68ALe1uca5mCj7mskOhgxGjVXyMn9afpTUncsw5TprVD9TZWYiECOD7mR7xPplDSgxwTTpffeCkEqU',
   },
   {
     quote:
       "I used to fear dentists, but the calm atmosphere here changed everything. My smile looks so natural. Best decision I've made for my confidence.",
     name: 'Elena Rossi',
-    role: 'Gallery Owner',
-    avatar:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuAjx1lS3Kb0_KOh6drXUnxUJh6t9MhcrVcn3FTci7C1Cm0lvdLK27c5x84o8QFOvbnID7tVRAqV1y4vKyeuFIEdbOKyzveL7UUNMW-vHYjYUWreWT3b_2SccMDsmFWhWpZfGz6IWsybKe4ryw53MYdwQKx8kkByGa6850p7AcPcwu6IhTD_yCbC4uf95WFs_3mv1M-cKyhjdORYXhaSUuoswmXDxBZ9FMEjFhev9baJ_WHC2umWMF3mpVZ5aoh7Ipp1BtP2A8VHTNs',
   },
   {
     quote:
       "Excellence redefined. The clinic is beautiful and the treatment was virtually painless. Dr. Vikas is a master of his craft.",
     name: 'Marcus Chen',
-    role: 'Creative Director',
-    avatar:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuD-HQgghzdtf7kazKyqQv4Iea-E4qJcVO167IhGFLxkQY8R80gEO8FDjcShtV3bXcjnZknvTIAT-Nm9uFCUlKDWEtTGmHzVXG5Y7EH8KcX-pz7TwuRybChFBLWopao6Ogf1fjaPN3YyOHRFW4ed1kqRzBi8xWJLXrs7Av3yDgyjyVxGThZ7HY8cJH1_dTAYetgnml2QlcffoOYeJuR03z1jtGXWbtQ-KmS-P60BnufQj3djPT40PqdlUHHdx-7TcAgdmqVmbYB3gLQ',
   },
 ];
 
 function Stars() {
   return (
-    <div className="flex gap-1 mb-5">
+    <div className="mb-5 flex gap-1">
       {[...Array(5)].map((_, i) => (
         <svg key={i} className="size-4 text-primary" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
@@ -38,42 +33,107 @@ function Stars() {
 }
 
 export default function TestimonialsSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeTestimonial = testimonials[activeIndex];
+
+  const goToPrevious = () => {
+    setActiveIndex((current) => (current === 0 ? testimonials.length - 1 : current - 1));
+  };
+
+  const goToNext = () => {
+    setActiveIndex((current) => (current === testimonials.length - 1 ? 0 : current + 1));
+  };
+
   return (
     <section className="max-w-6xl mx-auto px-4 md:px-6 py-16 md:py-24 overflow-hidden">
-      <div data-reveal className="text-center mb-16">
+      <div data-reveal className="mb-12 text-center">
         <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">
           Patient Stories
         </p>
-        <h2 className="text-4xl font-bold text-white">What They Say</h2>
+        <h2 className="text-4xl tracking-tight text-white">What They Say</h2>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6">
-        {testimonials.map(({ quote, name, role, avatar }, i) => (
-          <div
-            key={name}
-            data-reveal
-            style={{ '--reveal-delay': `${i * 0.12}s` } as React.CSSProperties}
-            className="relative bg-[var(--color-surface-3)] border border-white/5 rounded-2xl p-8"
-          >
-            {/* Large quote mark */}
-            <span className="absolute top-5 right-6 text-6xl font-black text-primary/10 leading-none select-none">
+      <div
+        data-reveal
+        className="rounded-[2rem] border border-white/6 bg-[var(--color-surface-3)] p-5 md:p-8"
+      >
+        <div className="grid gap-6 lg:grid-cols-[0.34fr_0.66fr] lg:items-stretch">
+          <div className="flex flex-col justify-between rounded-[1.5rem] border border-white/8 bg-[var(--color-surface-1)] p-5 md:p-6">
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-primary">
+                Patient Rating
+              </p>
+              <div className="mt-4 flex items-end gap-2">
+                <span className="text-5xl font-bold tracking-tight text-white">4.9</span>
+                <span className="mb-1.5 text-sm text-gray-400">/ 5</span>
+              </div>
+              <div className="mt-2 flex gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="size-4 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg>
+                ))}
+              </div>
+              <p className="mt-3 text-xs text-gray-500">120+ verified patient reviews</p>
+            </div>
+
+            <div className="mt-8 flex items-center gap-3">
+              <button
+                type="button"
+                onClick={goToPrevious}
+                aria-label="Show previous review"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/20 text-white transition-colors duration-200 hover:border-primary/30 hover:text-primary"
+              >
+                <span aria-hidden="true">&larr;</span>
+              </button>
+              <button
+                type="button"
+                onClick={goToNext}
+                aria-label="Show next review"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/20 text-white transition-colors duration-200 hover:border-primary/30 hover:text-primary"
+              >
+                <span aria-hidden="true">&rarr;</span>
+              </button>
+            </div>
+          </div>
+
+          <article className="relative rounded-[1.5rem] border border-primary/20 bg-[linear-gradient(135deg,rgba(191,145,75,0.1),rgba(17,17,17,0.94)_35%,rgba(17,17,17,1)_100%)] p-7 md:p-10">
+            <span className="absolute right-6 top-5 select-none text-6xl font-black leading-none text-primary/10">
               &ldquo;
             </span>
 
             <Stars />
 
-            <p className="text-gray-400 italic text-sm leading-relaxed mb-8 relative z-10">
-              &ldquo;{quote}&rdquo;
+            <p className="relative z-10 mb-10 max-w-2xl text-lg leading-relaxed text-gray-200 md:text-[1.35rem]">
+              &ldquo;{activeTestimonial.quote}&rdquo;
             </p>
 
-            <div>
-              <div className="font-semibold text-sm text-white">{name}</div>
-              <div className="text-[10px] text-primary uppercase tracking-widest mt-0.5">
-                {role}
+            <div className="flex items-end justify-between gap-4">
+              <div>
+                <div className="text-base font-medium tracking-tight text-white">
+                  {activeTestimonial.name}
+                </div>
+                <div className="mt-1 text-[10px] uppercase tracking-[0.24em] text-primary">
+                  Review Placeholder
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                {testimonials.map((testimonial, index) => (
+                  <button
+                    key={testimonial.name}
+                    type="button"
+                    onClick={() => setActiveIndex(index)}
+                    aria-label={`Show review ${index + 1}`}
+                    className={`h-2.5 rounded-full transition-all duration-200 ${
+                      index === activeIndex ? 'w-10 bg-primary' : 'w-2.5 bg-white/20 hover:bg-white/40'
+                    }`}
+                  />
+                ))}
               </div>
             </div>
-          </div>
-        ))}
+          </article>
+        </div>
       </div>
     </section>
   );

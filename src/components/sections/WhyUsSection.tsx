@@ -21,23 +21,24 @@ export default function WhyUsSection() {
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Why Choose Us</p>
             </div>
             <div>
-              <h2 className="text-3xl font-bold leading-tight text-white xl:text-4xl 2xl:text-5xl">
+              <h2 className="text-3xl leading-tight tracking-tight text-white xl:text-4xl 2xl:text-5xl">
                 The Precision of a{' '}
                 <span className="text-primary">Master,</span>
                 <br />
                 The Comfort of Home
               </h2>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-gray-400">
-                We leverage 3D imaging and laser dentistry to ensure your journey
-                is as smooth as the results we deliver. Our clinic is a sanctuary
-                from the typical dental experience.
+                From laser dentistry to advanced restorative care, every step is
+                shaped around precision, comfort, and naturally refined results.
+                The experience is calm, personalized, and designed to inspire
+                confidence from consultation to final smile.
               </p>
             </div>
             {/* Stat pill row */}
             <div className="mt-8 flex flex-wrap gap-3">
               {[
                 { value: '5,000+', label: 'Patients treated' },
-                { value: '98%', label: 'Satisfaction rate' },
+                { value: '3,000+', label: 'Implants placed' },
                 { value: '23+', label: 'Years of expertise' },
               ].map(({ value, label }) => (
                 <div
