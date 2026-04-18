@@ -2,12 +2,15 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const navLinks = ['Home', 'About', 'Service', 'Testimonial', 'Contact'];
+const navLinks = ['Home', 'Service', 'About', 'Credentials', 'Why Us', 'Gallery', 'Testimonial', 'Contact'];
 
 const navToSection: Record<string, string> = {
   Home: 'home',
-  About: 'about',
   Service: 'service',
+  About: 'about',
+  Credentials: 'credentials',
+  'Why Us': 'why-us',
+  Gallery: 'gallery',
   Testimonial: 'testimonial',
   Contact: 'contact',
 };
@@ -19,10 +22,12 @@ const sectionToNav: Record<string, string> = Object.fromEntries(
 export default function Navigation() {
   const [active, setActive] = useState('Home');
   const [indicator, setIndicator] = useState({ left: 0, width: 0, opacity: 0 });
+  const [snap, setSnap] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const buttonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  const isManualNav = useRef(false);
 
   useEffect(() => {
     const media = window.matchMedia('(max-width: 767px)');
@@ -46,13 +51,13 @@ export default function Navigation() {
     updateIndicator();
     window.addEventListener('resize', updateIndicator);
     return () => window.removeEventListener('resize', updateIndicator);
-  }, [active]);
+  }, [active, isMobile]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting && !isManualNav.current) {
             const label = sectionToNav[entry.target.id];
             if (label) setActive(label);
           }
@@ -68,10 +73,32 @@ export default function Navigation() {
   }, []);
 
   const handleNav = (link: string) => {
+    // Snap pill instantly to target, bypassing the slide animation
+    const container = containerRef.current;
+    const targetButton = buttonRefs.current[link];
+    if (container && targetButton) {
+      const containerRect = container.getBoundingClientRect();
+      const buttonRect = targetButton.getBoundingClientRect();
+      setSnap(true);
+      setIndicator({ left: buttonRect.left - containerRect.left, width: buttonRect.width, opacity: 1 });
+      requestAnimationFrame(() => requestAnimationFrame(() => setSnap(false)));
+    }
+
     setActive(link);
     setMenuOpen(false);
+    isManualNav.current = true;
     const id = navToSection[link];
     if (id) document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+
+    let scrollTimer: ReturnType<typeof setTimeout>;
+    const onScroll = () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        isManualNav.current = false;
+        window.removeEventListener('scroll', onScroll);
+      }, 150);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
   };
 
   if (isMobile === null) {
@@ -81,20 +108,20 @@ export default function Navigation() {
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50 pointer-events-none"
-      style={{ animation: 'fadeDown 0.6s ease-out both' }}
+      style={{ animation: 'fadeDown 0.6s ease-out both', willChange: 'transform' }}
     >
       <div className="mx-4 mt-4">
         {!isMobile ? (
           <div
             ref={containerRef}
-            className="relative max-w-5xl mx-auto flex items-center justify-between rounded-full border border-white/10 bg-black/85 px-2 py-1.5 shadow-2xl backdrop-blur-md pointer-events-auto"
+            className="relative max-w-5xl mx-auto flex items-center justify-between rounded-full border border-white/10 bg-black/90 px-2 py-1.5 shadow-2xl backdrop-blur-sm pointer-events-auto"
           >
             <div
-              className="absolute bottom-1.5 top-1.5 rounded-full bg-primary shadow-lg transition-all duration-300 ease-out"
+              className={`absolute bottom-1.5 top-1.5 rounded-full bg-primary shadow-lg ${snap ? '' : 'transition-all duration-300 ease-out'}`}
               style={{ left: indicator.left, width: indicator.width, opacity: indicator.opacity }}
             />
             <div className="relative z-10 flex items-center gap-1">
-              {navLinks.slice(0, 3).map((link) => (
+              {navLinks.slice(0, 4).map((link) => (
                 <button
                   key={link}
                   ref={(el) => { buttonRefs.current[link] = el; }}
@@ -110,7 +137,7 @@ export default function Navigation() {
               <span className="text-3xl text-primary" style={{ fontFamily: 'var(--font-cursive)' }}>Dr. Vikas</span>
             </div>
             <div className="relative z-10 flex items-center gap-1">
-              {navLinks.slice(3).map((link) => (
+              {navLinks.slice(4).map((link) => (
                 <button
                   key={link}
                   ref={(el) => { buttonRefs.current[link] = el; }}
@@ -122,7 +149,7 @@ export default function Navigation() {
           </div>
         ) : (
           <>
-            <div className="flex items-center justify-between rounded-full border border-white/10 bg-black/85 px-4 py-2.5 shadow-2xl backdrop-blur-md pointer-events-auto">
+            <div className="flex items-center justify-between rounded-full border border-white/10 bg-black/90 px-4 py-2.5 shadow-2xl backdrop-blur-sm pointer-events-auto">
               <div className="cursor-pointer" onClick={() => handleNav('Home')}>
                 <span className="text-2xl text-primary" style={{ fontFamily: 'var(--font-cursive)' }}>Dr. Vikas</span>
               </div>
@@ -139,7 +166,7 @@ export default function Navigation() {
             </div>
 
             <div
-              className={`mt-2 rounded-2xl border border-white/10 bg-black/90 backdrop-blur-md pointer-events-auto overflow-hidden transition-all duration-300 ease-out ${
+              className={`mt-2 rounded-2xl border border-white/10 bg-black/90 backdrop-blur-sm pointer-events-auto overflow-hidden transition-all duration-300 ease-out ${
                 menuOpen ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0'
               }`}
             >

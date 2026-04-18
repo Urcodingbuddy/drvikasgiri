@@ -9,7 +9,6 @@ import WhyUsSection from '@/components/sections/WhyUsSection';
 import StatsSection from '@/components/sections/StatsSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import GallerySection from '@/components/sections/GallerySection';
-import CTASection from '@/components/sections/CTASection';
 import ContactSection from '@/components/sections/ContactSection';
 import Footer from '@/components/layout/Footer';
 
@@ -29,10 +28,10 @@ export default function Home() {
       <section id="about" aria-label="About Dr. Vikas Giri">
         <AboutSection />
       </section>
-      <section aria-label="Credentials and Qualifications">
+      <section id="credentials" aria-label="Credentials and Qualifications">
         <CredentialsSection />
       </section>
-      <section aria-label="Why Choose Dr. Vikas Giri">
+      <section id="why-us" aria-label="Why Choose Dr. Vikas Giri">
         <WhyUsSection />
       </section>
       <section aria-label="Practice Highlights">
@@ -41,11 +40,8 @@ export default function Home() {
       <section id="testimonial" aria-label="Patient Testimonials">
         <TestimonialsSection />
       </section>
-      <section aria-label="Gallery">
+      <section id="gallery" aria-label="Gallery">
         <GallerySection />
-      </section>
-      <section aria-label="Consultation Call To Action">
-        <CTASection />
       </section>
       <section id="contact" aria-label="Contact and Booking">
         <ContactSection />
