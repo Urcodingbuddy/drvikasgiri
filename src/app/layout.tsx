@@ -66,6 +66,10 @@ const jsonLd = {
     '@type': 'City',
     name: 'Dubai',
   },
+  openingHours: [
+    'Mo-Sa 08:00-20:00',
+    'Su 10:00-18:00',
+  ],
   medicalSpecialty: 'Dentistry',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
