@@ -12,18 +12,23 @@ export default function Footer() {
     const dot = dotRef.current;
     if (!text || !dot) return;
 
+    const trigger = () => {
+      text.classList.add('pen-writing');
+      dot.classList.add('pen-dot-move');
+      observer.disconnect();
+    };
+
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          text.classList.add('pen-writing');
-          dot.classList.add('pen-dot-move');
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.6 }
+      ([entry]) => { if (entry.isIntersecting) trigger(); },
+      { threshold: 0.2 }
     );
 
     observer.observe(text);
+
+    // Fallback: if already in view on mount, fire immediately
+    const rect = text.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) trigger();
+
     return () => observer.disconnect();
   }, []);
 
