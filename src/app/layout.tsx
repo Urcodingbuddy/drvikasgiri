@@ -53,6 +53,7 @@ const jsonLd = {
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
+    streetAddress: 'Nadd Hessa, Cedre Villas',
     addressLocality: 'Dubai',
     addressCountry: 'AE',
   },
