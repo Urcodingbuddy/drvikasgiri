@@ -16,7 +16,7 @@ const contactInfo = [
   {
     icon: MapPin,
     label: 'Location',
-    value: 'Dubai, UAE',
+    value: 'Dubai Silicon Oasis, UAE',
   },
 ];
 

@@ -1,52 +1,81 @@
-const images = [
-  {
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBq-Fc0Xe4FqYVLGMI2v1Le90pnctV2k7xc90w6d6-G0C3-tGB4LR2xDr65U1erM51RuWIbI02VqdXe1Ur2t8UKgFAqWqWYTEpMdway0GCiUAb5m78yFs3BRiQ8ct2ZHA2J7DFF_rInnwaY1OQu2rSbtKJfezqoXBbqlGKONgJu0hrJBSLmZ3N_EiAyFLEuDLPUovR_HMVYeggnvhs8loFClwqIw59rxJcstTn2jrv8ozYOic5OWDT35O6_KEp7IAAL46oXfR1ayik',
-    alt: 'Dental equipment with golden reflections',
-    offset: false,
-  },
-  {
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCAYLh0kfTCKP7YsJ-te-E8yxaEqBg_avGJTD8_GTJuVRDOWew4E6aYqAJwZwm8KL_R-HS1rnvj7pufsUBbrzo9P6ys6Bs91IBJ_ZevnE_iRgFWk6C-FBYxgNpDTfrhguoVzppPdIofooIacAxXgxL51V_rtzYwZKGnAccq-wgswHmVBONiVeP2jW3LNPmmcbeYY2mGAgoiQiwMKNd4j7NO42quno3qtrZthcPericSluE5t-SNmbJrtjgVS4tZd2OibnMV2_EYlGM',
-    alt: 'High-end dental examination room',
-    offset: true,
-  },
-  {
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBuXty6m6cIEgzasy3vydux_OmLUke20uOedcOr3CfmfHJTPCmrZFkhGc9KjS6ncD0nzI37s88cml3aaDz02d8BqKB554y69heOt0df-La0RFVXCs6jrRcTPSdavzs49rKPPtjdcpvyaQdIkxIP-F9-2EH6p1ah9g-eqgBJlZVfQ2Unl-j9zJJ-Ah6msWjg6XasXDSZ8-0dOhf8yfJjAPWfF_Qhk6OnrLh1gMuvTERPRP7OB1G5VUmlCER1TFrHn79vIauvfn4K8dw',
-    alt: 'Dental procedure under warm professional lighting',
-    offset: false,
-  },
-];
+'use client';
+
+import Image from 'next/image';
+import { useState } from 'react';
+
+const images = Array.from({ length: 9 }, (_, i) => ({
+  src: `/Gallery/gallery_image_${String(i + 1).padStart(2, '0')}.png`,
+  alt: `Dr. Vikas Giri dental clinic — photo ${i + 1}`,
+}));
+
+const desktopStagger: Record<number, string> = { 0: '', 1: 'md:mt-12', 2: 'md:mt-6' };
+const mobileStagger: Record<number, string> = { 0: '', 1: 'mt-6' };
+
+const MOBILE_INITIAL = 2;
 
 export default function GallerySection() {
+  const [expanded, setExpanded] = useState(false);
+
   return (
-    <section className="bg-[var(--color-surface-lowest)] py-16 md:py-24">
+    <section className="bg-[var(--color-surface-lowest)] py-16 md:py-24 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
-        <div data-reveal className="text-center mb-16">
-          <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">
-            Our Space
-          </p>
-          <h2 className="text-4xl md:text-5xl leading-tight tracking-tight text-white">The Atelier Gallery</h2>
+
+        <div data-reveal className="text-center mb-12">
+          <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Our Space</p>
+          <h2
+            className="text-4xl md:text-5xl leading-tight tracking-tight text-white"
+            style={{ fontFamily: 'var(--font-cursive)' }}
+          >
+            The Atelier Gallery
+          </h2>
         </div>
 
-        <div className="grid grid-cols-4 gap-5 md:grid-cols-3">
-          {images.map(({ src, alt, offset }, i) => (
-            <div
-              key={alt}
-              data-reveal
-              style={{ '--reveal-delay': `${i * 0.12}s` } as React.CSSProperties}
-              className={`group overflow-hidden rounded-2xl bg-[var(--color-surface-3)] ${
-                i === 0 ? 'col-span-2 md:col-span-1' :
-                i === 1 ? 'col-span-2 md:col-span-1 md:mt-10' :
-                'col-start-2 col-span-2 md:col-start-auto md:col-span-1'
-              }`}
-            >
-              <img
-                src={src}
-                alt={alt}
-                className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-          ))}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+          {images.map((img, i) => {
+            const hiddenOnMobile = !expanded && i >= MOBILE_INITIAL;
+
+            return (
+              <div
+                key={img.src}
+                data-reveal
+                style={{ '--reveal-delay': `${(i % 3) * 0.1}s` } as React.CSSProperties}
+                className={`group relative overflow-hidden rounded-2xl ${mobileStagger[i % 2]} ${desktopStagger[i % 3]} ${hiddenOnMobile ? 'hidden md:block' : ''}`}
+              >
+                <div className="relative aspect-[9/16] w-full overflow-hidden">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                </div>
+              </div>
+            );
+          })}
         </div>
+
+        {/* Show more / less — mobile only */}
+        <div className="flex justify-center mt-6 md:hidden">
+          <button
+            onClick={() => setExpanded((prev) => !prev)}
+            className="flex items-center gap-2 rounded-full border border-white/10 bg-[var(--color-surface-2)] px-6 py-2.5 text-xs font-bold uppercase tracking-widest text-white transition-colors duration-200 hover:border-primary/30 hover:text-primary"
+          >
+            {expanded ? 'Show Less' : `Show More (${images.length - MOBILE_INITIAL} photos)`}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className={`size-3.5 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2.5}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
+
       </div>
     </section>
   );

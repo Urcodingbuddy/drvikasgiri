@@ -10,6 +10,7 @@ import StatsSection from '@/components/sections/StatsSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import GallerySection from '@/components/sections/GallerySection';
 import ContactSection from '@/components/sections/ContactSection';
+import InstagramCard from '@/components/ui/InstagramCard';
 import Footer from '@/components/layout/Footer';
 
 export default function Home() {
@@ -46,6 +47,7 @@ export default function Home() {
       <section id="contact" aria-label="Contact and Booking">
         <ContactSection />
       </section>
+      <InstagramCard />
       <Footer />
       <RibbonSection />
     </main>

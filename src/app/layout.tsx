@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Outfit, Great_Vibes } from 'next/font/google'
 import './globals.css'
 import ScrollReveal from '@/components/ui/ScrollReveal'
+import FloatingActions from '@/components/ui/FloatingActions'
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -102,6 +103,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <ScrollReveal />
+        <FloatingActions />
         {children}
       </body>
     </html>
