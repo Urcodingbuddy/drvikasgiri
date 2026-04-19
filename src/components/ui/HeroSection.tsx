@@ -143,7 +143,7 @@ export default function HeroSection() {
           style={{ animation: "fadeUp 0.7s ease-out 0.3s both" }}
         >
           {/* Cyan Dome SVG Background provided by user */}
-          <div className="pointer-events-none absolute inset-x-0 -bottom-2 z-0 h-[81%] origin-bottom scale-[0.97] md:-inset-x-16 md:-bottom-16 md:h-[90%] md:scale-110">
+          <div className="pointer-events-none absolute inset-x-0 -bottom-2 z-0 h-[89%] origin-bottom scale-[1.07] md:-inset-x-16 md:-bottom-16 md:h-[90%] md:scale-110">
             <Image
               src="/semi-circle.svg"
               alt="Background"
@@ -155,7 +155,7 @@ export default function HeroSection() {
 
           {/* Doctor Image */}
           <div
-            className="pointer-events-none relative -bottom-4 z-10 h-[90%] w-[85%] origin-bottom scale-100 md:-bottom-16 md:h-[95%] md:w-[90%] md:scale-[1.2]"
+            className="pointer-events-none relative -bottom-4 z-10 h-[99%] w-[93%] origin-bottom scale-[1.1] md:-bottom-16 md:h-[95%] md:w-[90%] md:scale-[1.2]"
           >
             <Image
               src="/doctor.png"
