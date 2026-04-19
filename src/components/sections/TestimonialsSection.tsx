@@ -5,18 +5,13 @@ import { useState } from 'react';
 const testimonials = [
   {
     quote:
-      'The attention to detail is remarkable. Dr. Vikas explained every step, and the result was far beyond my expectations. Truly a dental atelier.',
-    name: 'Julian Thorne',
+      'Exceptional care and attention to detail. A genuinely seamless and reassuring experience. Highly recommend!',
+    name: 'Moswain Welsh Antao',
   },
   {
     quote:
-      "I used to fear dentists, but the calm atmosphere here changed everything. My smile looks so natural. Best decision I've made for my confidence.",
-    name: 'Elena Rossi',
-  },
-  {
-    quote:
-      "Excellence redefined. The clinic is beautiful and the treatment was virtually painless. Dr. Vikas is a master of his craft.",
-    name: 'Marcus Chen',
+      'I had my whitening done today with Dr. Vikas, and I just want to sincerely thank him for his professionalism and attention to detail. He was incredibly kind, made me feel comfortable throughout the entire process, and truly took the time to ensure I got the best possible result. I really appreciate the care and effort he put into everything.',
+    name: 'Ayette Mezni',
   },
 ];
 
