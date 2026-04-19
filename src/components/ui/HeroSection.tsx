@@ -18,7 +18,7 @@ const quoteWords = [
 
 export default function HeroSection() {
   return (
-    <section className="relative flex flex-1 flex-col items-center overflow-hidden bg-background pb-0 pt-32">
+    <section className="relative flex flex-1 flex-col items-center overflow-hidden bg-background pb-0 pt-20 md:pt-32">
       {/* Top Hello Bubble */}
       <div
         className="relative inline-flex items-center"
@@ -91,31 +91,26 @@ export default function HeroSection() {
         </h1>
       </div>
 
-      {/* Mobile-only quote + stats */}
+      {/* Mobile-only stats row */}
       <div
-        className="lg:hidden mt-3 px-8 flex flex-col items-center gap-3"
+        className="lg:hidden mt-2 flex items-center gap-2"
         style={{ animation: "fadeUp 0.6s ease-out 0.35s both" }}
       >
-        <p className="text-center text-sm leading-relaxed text-gray-400">
-          &ldquo;{quoteWords.join(' ')}&rdquo;
-        </p>
-        <div className="flex items-center gap-2">
-          <p className="text-white text-2xl font-extrabold tracking-tight">23+ Years</p>
-          <span className="text-gray-600">·</span>
-          <p className="text-gray-400 text-sm font-medium">Experience</p>
-          <span className="text-gray-600">·</span>
-          <div className="flex gap-0.5">
-            {[0,1,2,3,4].map((i) => (
-              <svg key={i} className="size-4" viewBox="0 0 24 24" fill="#FFC107">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-            ))}
-          </div>
+        <p className="text-white text-lg font-extrabold tracking-tight">23+ Years</p>
+        <span className="text-gray-600">·</span>
+        <p className="text-gray-400 text-xs font-medium">Experience</p>
+        <span className="text-gray-600">·</span>
+        <div className="flex gap-0.5">
+          {[0,1,2,3,4].map((i) => (
+            <svg key={i} className="size-3" viewBox="0 0 24 24" fill="#FFC107">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+          ))}
         </div>
       </div>
 
       {/* Main layout container (Quote - Doctor - Experience) */}
-      <div className="relative mx-auto mt-6 flex min-h-0 w-full max-w-7xl flex-1 items-end justify-center px-6 -mb-1 lg:justify-between lg:px-12 xl:px-20">
+      <div className="relative mx-auto mt-2 flex min-h-0 w-full max-w-7xl flex-1 items-end justify-center px-6 -mb-1 md:mt-6 lg:justify-between lg:px-12 xl:px-20">
         {/* LEFT: Quote Block — side panel on lg+, hidden on mobile (shown above) */}
         <div
           className="z-20 mb-[15vh] hidden w-72 lg:block"
@@ -139,11 +134,11 @@ export default function HeroSection() {
 
         {/* CENTER: Doctor Semicircle - Scales perfectly proportional to available height */}
         <div
-          className="relative flex h-full w-full max-w-xl shrink-0 aspect-[12/13] flex-col items-center justify-end lg:max-w-2xl"
+          className="relative flex h-full w-full flex-col items-center justify-end lg:max-w-2xl lg:aspect-[12/13] lg:shrink-0"
           style={{ animation: "fadeUp 0.7s ease-out 0.3s both" }}
         >
           {/* Cyan Dome SVG Background provided by user */}
-          <div className="pointer-events-none absolute -inset-x-16 -bottom-16 z-0 h-[110%] origin-bottom scale-[1.4] md:inset-x-0 md:h-[90%] md:scale-110">
+          <div className="pointer-events-none absolute inset-x-0 -bottom-4 z-0 h-[90%] origin-bottom scale-100 md:-inset-x-16 md:-bottom-16 md:h-[110%] md:scale-[1.4]">
             <Image
               src="/semi-circle.svg"
               alt="Background"
@@ -155,7 +150,7 @@ export default function HeroSection() {
 
           {/* Doctor Image */}
           <div
-            className="pointer-events-none relative -bottom-16 z-10 h-[95%] w-[90%] origin-bottom scale-[1.4] md:scale-[1.2]"
+            className="pointer-events-none relative -bottom-4 z-10 h-[90%] w-[85%] origin-bottom scale-100 md:-bottom-16 md:h-[95%] md:w-[90%] md:scale-[1.2]"
           >
             <Image
               src="/doctor.png"
