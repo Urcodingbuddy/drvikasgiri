@@ -27,6 +27,33 @@ function Stars() {
   );
 }
 
+const LIMIT = 107;
+
+function QuoteText({ quote }: { quote: string }) {
+  const [expanded, setExpanded] = useState(false);
+  const isLong = quote.length > LIMIT;
+  const displayed = isLong && !expanded ? quote.slice(0, LIMIT).trimEnd() : quote;
+
+  return (
+    <p className="relative z-10 mb-10 max-w-2xl text-lg leading-relaxed text-gray-200 md:text-[1.35rem]">
+      &ldquo;{displayed}
+      {isLong && !expanded && (
+        <>
+          {'... '}
+          <button
+            onClick={() => setExpanded(true)}
+            className="text-primary underline-offset-2 hover:underline text-base font-medium"
+          >
+            read more
+          </button>
+        </>
+      )}
+      {expanded && <>&rdquo;</>}
+      {!expanded && !isLong && <>&rdquo;</>}
+    </p>
+  );
+}
+
 export default function TestimonialsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeTestimonial = testimonials[activeIndex];
@@ -99,9 +126,7 @@ export default function TestimonialsSection() {
 
             <Stars />
 
-            <p className="relative z-10 mb-10 max-w-2xl text-lg leading-relaxed text-gray-200 md:text-[1.35rem]">
-              &ldquo;{activeTestimonial.quote}&rdquo;
-            </p>
+            <QuoteText key={activeIndex} quote={activeTestimonial.quote} />
 
             <div className="flex items-end justify-between gap-4">
               <div>
