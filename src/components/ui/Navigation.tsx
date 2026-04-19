@@ -166,20 +166,52 @@ export default function Navigation() {
             </div>
 
             <div
-              className={`mt-2 rounded-2xl border border-white/10 bg-black/90 backdrop-blur-sm pointer-events-auto overflow-hidden transition-all duration-300 ease-out ${
-                menuOpen ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0'
+              className={`mt-2 rounded-2xl border border-white/10 bg-[#0a0a0a]/98 backdrop-blur-sm pointer-events-auto overflow-hidden transition-all duration-300 ease-out ${
+                menuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
               }`}
             >
-              <div className="grid grid-cols-3 gap-1 p-3">
-                {navLinks.map((link) => (
-                  <button
-                    key={link}
-                    onClick={() => handleNav(link)}
-                    className={`rounded-xl px-3 py-3 text-sm font-semibold transition-all duration-200 ${
-                      active === link ? 'bg-primary text-[#141414]' : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                    }`}
-                  >{link}</button>
-                ))}
+              <div className="px-3 pt-3 pb-1">
+                <p className="text-[9px] font-bold uppercase tracking-[0.28em] text-primary/70 px-2 mb-2">Navigation</p>
+                <div className="space-y-0.5">
+                  {navLinks.map((link, index) => (
+                    <button
+                      key={link}
+                      onClick={() => handleNav(link)}
+                      className={`w-full flex items-center justify-between rounded-xl px-3 py-2.5 transition-all duration-200 ${
+                        active === link
+                          ? 'bg-primary text-[#141414]'
+                          : 'text-gray-400 hover:bg-white/5 hover:text-white'
+                      }`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className={`text-[10px] font-bold tabular-nums w-4 ${active === link ? 'text-[#141414]/50' : 'text-primary/60'}`}>
+                          {String(index + 1).padStart(2, '0')}
+                        </span>
+                        <span className="text-sm font-semibold">{link}</span>
+                      </div>
+                      {active === link && (
+                        <svg className="size-3" viewBox="0 -960 960 960" fill="currentColor">
+                          <path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" />
+                        </svg>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="p-3 pt-2">
+                <div className="h-px w-full bg-white/5 mb-3" />
+                <button
+                  onClick={() => { setMenuOpen(false); document.getElementById('book-mobile')?.scrollIntoView({ behavior: 'smooth' }); }}
+                  className="group w-full flex items-center justify-between rounded-full bg-primary py-1 pl-5 pr-1 text-sm font-semibold text-[#141414] shadow-lg"
+                >
+                  <span>Book Consultation</span>
+                  <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full bg-black/80">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="size-[15px] transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" viewBox="0 -960 960 960" fill="white">
+                      <path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" />
+                    </svg>
+                  </span>
+                </button>
               </div>
             </div>
           </>

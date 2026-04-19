@@ -20,12 +20,12 @@ export default function Footer() {
 
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) trigger(); },
-      { threshold: 0.2 }
+      { threshold: 0, rootMargin: '0px 0px -30px 0px' }
     );
 
     observer.observe(text);
 
-    // Fallback: if already in view on mount, fire immediately
+    // Fallback: fire immediately if already partially in view
     const rect = text.getBoundingClientRect();
     if (rect.top < window.innerHeight && rect.bottom > 0) trigger();
 

@@ -27,14 +27,16 @@ export default function GallerySection() {
           <h2 className="text-4xl md:text-5xl leading-tight tracking-tight text-white">The Atelier Gallery</h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-4 gap-5 md:grid-cols-3">
           {images.map(({ src, alt, offset }, i) => (
             <div
               key={alt}
               data-reveal
               style={{ '--reveal-delay': `${i * 0.12}s` } as React.CSSProperties}
               className={`group overflow-hidden rounded-2xl bg-[var(--color-surface-3)] ${
-                offset ? 'md:mt-10' : ''
+                i === 0 ? 'col-span-2 md:col-span-1' :
+                i === 1 ? 'col-span-2 md:col-span-1 md:mt-10' :
+                'col-start-2 col-span-2 md:col-start-auto md:col-span-1'
               }`}
             >
               <img

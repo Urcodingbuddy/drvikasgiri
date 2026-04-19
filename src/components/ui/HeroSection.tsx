@@ -181,7 +181,7 @@ export default function HeroSection() {
                 </svg>
               </span>
             </button>
-            <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="rounded-full px-4 py-1 text-xs font-semibold text-white md:px-7 md:py-1.5 md:text-sm">
+            <button onClick={() => document.getElementById('booking-form')?.scrollIntoView({ behavior: 'smooth' })} className="rounded-full px-4 py-1 text-xs font-semibold text-white md:px-7 md:py-1.5 md:text-sm">
               Book Free Consultation
             </button>
           </div>

@@ -54,21 +54,19 @@ export default function CredentialsSection() {
               </p>
 
               <div className="mt-10 rounded-[1.5rem] border border-white/10 bg-black/25 p-6 backdrop-blur-sm">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/15">
-                    <Award className="size-5 text-primary" strokeWidth={1.6} />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-primary">
-                      {primaryCredential.label}
-                    </p>
-                    <h3 className="mt-2 text-2xl leading-snug tracking-tight text-white">
-                      {primaryCredential.title}
-                    </h3>
-                    <p className="mt-3 max-w-lg text-sm leading-relaxed text-gray-300">
-                      {primaryCredential.summary}
-                    </p>
-                  </div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/15 mb-4">
+                  <Award className="size-5 text-primary" strokeWidth={1.6} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-primary">
+                    {primaryCredential.label}
+                  </p>
+                  <h3 className="mt-2 text-xl leading-snug tracking-tight text-white md:text-2xl">
+                    {primaryCredential.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-gray-300">
+                    {primaryCredential.summary}
+                  </p>
                 </div>
               </div>
             </div>

@@ -51,7 +51,7 @@ export default function ContactSection() {
 
         <div className="space-y-8">
           {contactInfo.map(({ icon: Icon, label, value }) => (
-            <div key={label} className="flex items-start gap-5">
+            <div key={label} id={label === 'Location' ? 'book-mobile' : undefined} className="flex items-start gap-5">
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                 <Icon className="size-4 text-primary" strokeWidth={1.5} />
               </div>
@@ -87,6 +87,7 @@ export default function ContactSection() {
 
       {/* Right — form */}
       <div
+        id="booking-form"
         data-reveal="right"
         style={{ '--reveal-delay': '0.1s' } as React.CSSProperties}
         className="bg-[var(--color-surface-2)] border border-white/5 rounded-2xl p-8"
