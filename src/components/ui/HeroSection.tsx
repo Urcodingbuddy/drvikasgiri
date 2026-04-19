@@ -91,21 +91,26 @@ export default function HeroSection() {
         </h1>
       </div>
 
-      {/* Mobile-only stats row */}
+      {/* Mobile-only quote + stats */}
       <div
-        className="lg:hidden mt-2 flex items-center gap-2"
+        className="lg:hidden mt-2 px-6 flex flex-col items-center gap-2"
         style={{ animation: "fadeUp 0.6s ease-out 0.35s both" }}
       >
-        <p className="text-white text-lg font-extrabold tracking-tight">23+ Years</p>
-        <span className="text-gray-600">·</span>
-        <p className="text-gray-400 text-xs font-medium">Experience</p>
-        <span className="text-gray-600">·</span>
-        <div className="flex gap-0.5">
-          {[0,1,2,3,4].map((i) => (
-            <svg key={i} className="size-3" viewBox="0 0 24 24" fill="#FFC107">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-            </svg>
-          ))}
+        <p className="text-center text-xs leading-relaxed text-gray-400">
+          &ldquo;{quoteWords.join(' ')}&rdquo;
+        </p>
+        <div className="flex items-center gap-2">
+          <p className="text-white text-base font-extrabold tracking-tight">23+ Years</p>
+          <span className="text-gray-600">·</span>
+          <p className="text-gray-400 text-xs font-medium">Experience</p>
+          <span className="text-gray-600">·</span>
+          <div className="flex gap-0.5">
+            {[0,1,2,3,4].map((i) => (
+              <svg key={i} className="size-3" viewBox="0 0 24 24" fill="#FFC107">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -138,7 +143,7 @@ export default function HeroSection() {
           style={{ animation: "fadeUp 0.7s ease-out 0.3s both" }}
         >
           {/* Cyan Dome SVG Background provided by user */}
-          <div className="pointer-events-none absolute inset-x-0 -bottom-2 z-0 h-[75%] origin-bottom scale-90 md:-inset-x-16 md:-bottom-16 md:h-[90%] md:scale-110">
+          <div className="pointer-events-none absolute inset-x-0 -bottom-2 z-0 h-[81%] origin-bottom scale-[0.97] md:-inset-x-16 md:-bottom-16 md:h-[90%] md:scale-110">
             <Image
               src="/semi-circle.svg"
               alt="Background"
