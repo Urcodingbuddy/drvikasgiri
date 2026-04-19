@@ -1,25 +1,47 @@
-import Image from 'next/image';
+'use client';
 
-const comparisonPoints = [
+import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
+
+const sets = [
   {
-    label: 'Before',
-    title: 'Smile Concerns',
-    image: '/conversions/veneers_before_01.png',
-    points: ['Discoloration', 'Chips or worn edges', 'Asymmetry', 'Confidence hesitation'],
+    before: { src: '/conversions/veneers_before_01.png', alt: 'Before veneers — patient 1' },
+    after: { src: '/conversions/veneers_after_01.png', alt: 'After veneers — patient 1' },
   },
   {
-    label: 'After',
-    title: 'Smile Design Outcome',
-    image: '/conversions/veneers_after_01.png',
-    points: ['Balanced proportions', 'Refined brightness', 'Natural harmony', 'Confident presence'],
+    before: { src: '/conversions/veneers_before_02.png', alt: 'Before veneers — patient 2' },
+    after: { src: '/conversions/veneers_after_02.png', alt: 'After veneers — patient 2' },
   },
 ];
 
 export default function VeneersSection() {
+  const [active, setActive] = useState(0);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const startTimer = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setActive((prev) => (prev + 1) % sets.length);
+    }, 4000);
+  };
+
+  useEffect(() => {
+    startTimer();
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const goTo = (i: number) => {
+    setActive(i);
+    startTimer();
+  };
+
   return (
     <section className="bg-[var(--color-surface-lowest)] py-16 md:py-24 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         <div className="grid items-start gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
+
+          {/* Left — info panel */}
           <div data-reveal="left" className="lg:sticky lg:top-28">
             <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">
               Veneers Focus
@@ -46,12 +68,7 @@ export default function VeneersSection() {
               </div>
 
               <div className="grid grid-cols-2 gap-3">
-                {[
-                  'Smile Makeovers',
-                  'Natural Proportions',
-                  'Cosmetic Precision',
-                  'Tailored Design',
-                ].map((item) => (
+                {['Smile Makeovers', 'Natural Proportions', 'Cosmetic Precision', 'Tailored Design'].map((item) => (
                   <div
                     key={item}
                     className="rounded-2xl border border-white/6 bg-[var(--color-surface-3)] px-4 py-4 text-sm text-white"
@@ -63,53 +80,78 @@ export default function VeneersSection() {
             </div>
           </div>
 
+          {/* Right — carousel */}
           <div
             data-reveal="right"
             style={{ '--reveal-delay': '0.08s' } as React.CSSProperties}
-            className="self-start"
+            className="self-start lg:pt-12"
           >
-            <div className="w-[64%] mx-auto rounded-[2rem] border border-white/6 bg-[var(--color-surface-3)] p-4 md:p-5 space-y-4">
-              {comparisonPoints.map(({ label, title, image, points }, index) => (
-                <article
-                  key={label}
-                  data-reveal
-                  style={{ '--reveal-delay': `${0.12 + index * 0.08}s` } as React.CSSProperties}
-                  className={`w-full rounded-[1.5rem] border overflow-hidden ${
-                    label === 'After'
-                      ? 'border-primary/25 bg-[linear-gradient(180deg,rgba(191,145,75,0.08),rgba(26,24,21,0.96))]'
-                      : 'border-white/8 bg-[var(--color-surface-1)]'
-                  }`}
-                >
-                  <div className="relative w-full aspect-[3.84/1.3] overflow-hidden">
-                    <Image
-                      src={image}
-                      alt={`${label} — ${title}`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 55vw"
-                    />
-                    <span className="absolute left-4 top-4 rounded-full border border-white/15 bg-black/50 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-primary backdrop-blur-sm">
-                      {label}
-                    </span>
-                  </div>
-
-                  <div className="px-5 py-4 text-center">
-                    <h3 className="text-sm font-semibold tracking-tight text-white mb-3">{title}</h3>
-                    <div className="flex flex-wrap justify-center gap-2">
-                      {points.map((point) => (
-                        <span
-                          key={point}
-                          className="text-[11px] text-gray-400 border border-white/8 rounded-full px-3 py-1"
-                        >
-                          {point}
+            {/* Slide track */}
+            <div className="overflow-hidden rounded-[2rem]">
+              <div
+                className="flex transition-transform duration-700 ease-in-out"
+                style={{ transform: `translateX(-${active * 100}%)` }}
+              >
+                {sets.map((set, i) => (
+                  <div key={i} className="min-w-full">
+                    <div className="grid grid-cols-2 gap-2 md:gap-3">
+                      {/* Before */}
+                      <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/8 bg-[var(--color-surface-3)]">
+                        <Image
+                          src={set.before.src}
+                          alt={set.before.alt}
+                          fill
+                          className="object-cover object-top"
+                          sizes="(max-width: 1024px) 50vw, 28vw"
+                          priority={i === 0}
+                        />
+                        <span className="absolute left-3 top-3 rounded-full border border-white/20 bg-black/60 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300 backdrop-blur-sm">
+                          Before
                         </span>
-                      ))}
+                      </div>
+
+                      {/* After */}
+                      <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-primary/30 bg-[var(--color-surface-3)]">
+                        <Image
+                          src={set.after.src}
+                          alt={set.after.alt}
+                          fill
+                          className="object-cover object-top"
+                          sizes="(max-width: 1024px) 50vw, 28vw"
+                          priority={i === 0}
+                        />
+                        <span className="absolute left-3 top-3 rounded-full border border-primary/40 bg-black/60 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-primary backdrop-blur-sm">
+                          After
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </article>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            {/* Dots + label */}
+            <div className="mt-5 flex items-center justify-center gap-4">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-gray-500">
+                Patient {active + 1} of {sets.length}
+              </p>
+              <div className="flex items-center gap-2">
+                {sets.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => goTo(i)}
+                    aria-label={`Go to patient ${i + 1}`}
+                    className={`rounded-full transition-all duration-300 ${
+                      i === active
+                        ? 'bg-primary w-6 h-2'
+                        : 'bg-white/20 hover:bg-white/40 w-2 h-2'
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
