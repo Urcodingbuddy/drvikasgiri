@@ -96,17 +96,17 @@ export default function HeroSection() {
         className="lg:hidden mt-2 px-6 flex flex-col items-center gap-2"
         style={{ animation: "fadeUp 0.6s ease-out 0.35s both" }}
       >
-        <p className="text-center text-xs leading-relaxed text-gray-400">
+        <p className="text-center text-[12.6px] leading-relaxed text-gray-400">
           &ldquo;{quoteWords.join(' ')}&rdquo;
         </p>
         <div className="flex items-center gap-2">
-          <p className="text-white text-base font-extrabold tracking-tight">23+ Years</p>
+          <p className="text-white text-[16.8px] font-extrabold tracking-tight">23+ Years</p>
           <span className="text-gray-600">·</span>
-          <p className="text-gray-400 text-xs font-medium">Experience</p>
+          <p className="text-gray-400 text-[12.6px] font-medium">Experience</p>
           <span className="text-gray-600">·</span>
           <div className="flex gap-0.5">
             {[0,1,2,3,4].map((i) => (
-              <svg key={i} className="size-3" viewBox="0 0 24 24" fill="#FFC107">
+              <svg key={i} className="size-[12.6px]" viewBox="0 0 24 24" fill="#FFC107">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
               </svg>
             ))}
