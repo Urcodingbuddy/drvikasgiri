@@ -1,3 +1,5 @@
+'use client';
+
 import { CalendarDays, Award, Microscope } from 'lucide-react';
 import Image from 'next/image';
 
@@ -128,7 +130,11 @@ export default function AboutSection() {
 
           {/* CTA */}
           <div className="flex items-center gap-4">
-            <button className="group flex items-center gap-2 rounded-full bg-primary px-7 py-2.5 text-sm font-semibold text-[#141414] shadow-lg transition-colors duration-200 hover:bg-[var(--color-primary-hover)]">
+            <a
+              href="#contact"
+              onClick={(e) => { e.preventDefault(); document.getElementById('booking-form')?.scrollIntoView({ behavior: 'smooth' }); }}
+              className="group flex items-center gap-2 rounded-full bg-primary px-7 py-2.5 text-sm font-semibold text-[#141414] shadow-lg transition-colors duration-200 hover:bg-[var(--color-primary-hover)]"
+            >
               Book Consultation
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -138,10 +144,7 @@ export default function AboutSection() {
               >
                 <path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" />
               </svg>
-            </button>
-            <button className="text-sm font-semibold text-gray-400 underline-offset-4 transition-colors hover:text-white hover:underline">
-              View credentials
-            </button>
+            </a>
           </div>
         </div>
 
