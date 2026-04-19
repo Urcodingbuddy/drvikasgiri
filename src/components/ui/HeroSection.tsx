@@ -134,11 +134,11 @@ export default function HeroSection() {
 
         {/* CENTER: Doctor Semicircle - Scales perfectly proportional to available height */}
         <div
-          className="relative flex h-full w-full flex-col items-center justify-end lg:max-w-2xl lg:aspect-[12/13] lg:shrink-0"
+          className="relative flex h-full w-full flex-col items-center justify-end md:max-w-xl md:shrink-0 md:aspect-[12/13] lg:max-w-2xl"
           style={{ animation: "fadeUp 0.7s ease-out 0.3s both" }}
         >
           {/* Cyan Dome SVG Background provided by user */}
-          <div className="pointer-events-none absolute inset-x-0 -bottom-4 z-0 h-[90%] origin-bottom scale-100 md:-inset-x-16 md:-bottom-16 md:h-[110%] md:scale-[1.4]">
+          <div className="pointer-events-none absolute inset-x-0 -bottom-2 z-0 h-[75%] origin-bottom scale-90 md:-inset-x-16 md:-bottom-16 md:h-[90%] md:scale-110">
             <Image
               src="/semi-circle.svg"
               alt="Background"
@@ -165,18 +165,18 @@ export default function HeroSection() {
 
           {/* Glassmorphic CTA Pill - overlays doctor image */}
           <div
-            className="absolute bottom-[8%] left-1/2 z-20 flex w-max -translate-x-1/2 items-center rounded-full border border-white/10 bg-black/55 p-1.5 shadow-2xl backdrop-blur-2xl"
+            className="absolute bottom-[8%] left-1/2 z-20 flex w-max -translate-x-1/2 items-center rounded-full border border-white/10 bg-black/55 p-1 shadow-2xl backdrop-blur-2xl md:p-1.5"
             style={{ animation: "fadeUp 0.6s ease-out 0.8s both" }}
           >
-            <button onClick={() => document.getElementById('service')?.scrollIntoView({ behavior: 'smooth' })} className="group flex items-center gap-4 rounded-full bg-primary py-1.5 pl-6 pr-1.5 text-base font-semibold text-[#141414] shadow-lg">
+            <button onClick={() => document.getElementById('service')?.scrollIntoView({ behavior: 'smooth' })} className="group flex items-center gap-3 rounded-full bg-primary py-1 pl-5 pr-1 text-sm font-semibold text-[#141414] shadow-lg md:gap-4 md:py-1.5 md:pl-6 md:pr-1.5 md:text-base">
               <span>View Services</span>
-              <span className="flex h-[33px] w-[33px] shrink-0 items-center justify-center rounded-full bg-black/80">
-                <svg xmlns="http://www.w3.org/2000/svg" className="size-[16.5px] transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" viewBox="0 -960 960 960" fill="white">
+              <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full bg-black/80 md:h-[33px] md:w-[33px]">
+                <svg xmlns="http://www.w3.org/2000/svg" className="size-[15px] transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 md:size-[16.5px]" viewBox="0 -960 960 960" fill="white">
                   <path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" />
                 </svg>
               </span>
             </button>
-            <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="rounded-full px-5 py-1.5 text-sm font-semibold text-white md:px-7">
+            <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="rounded-full px-4 py-1 text-xs font-semibold text-white md:px-7 md:py-1.5 md:text-sm">
               Book Free Consultation
             </button>
           </div>
