@@ -59,14 +59,12 @@ export default function HeroSection() {
         className="relative mt-8 shrink-0 px-4 text-center"
         style={{ animation: "fadeUp 0.6s ease-out 0.2s both" }}
       >
-        <h1 className="relative mb-2 inline-block text-center text-3xl leading-tight tracking-tight text-white sm:text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl">
+        <h1 className="relative mb-2 inline-block text-center text-3xl  text-white sm:text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl">
           <span className="text-primary">Dr. Vikas Giri</span>
           <br />
           Veneers &amp; Cosmetic Dentist
           {/* Bottom left cyan vector slashes relative to the text */}
-          <div
-            className="absolute -left-12 bottom-2 hidden -rotate-12 opacity-90 md:block"
-          >
+          <div className="absolute -left-12 bottom-2 hidden -rotate-12 opacity-90 md:block">
             <svg className="size-10" viewBox="0 0 48 48" fill="none">
               <path
                 d="M12 40 L30 12"
@@ -97,16 +95,21 @@ export default function HeroSection() {
         style={{ animation: "fadeUp 0.6s ease-out 0.35s both" }}
       >
         <p className="text-center text-[12.6px] leading-relaxed text-gray-400">
-          &ldquo;{quoteWords.join(' ')}&rdquo;
+          &ldquo;{quoteWords.join(" ")}&rdquo;
         </p>
         <div className="flex items-center gap-2">
-          <p className="text-white text-[16.8px] font-extrabold tracking-tight">23+ Years</p>
+          <p className="text-white text-[16.8px]  tracking-tight">23+ Years</p>
           <span className="text-gray-600">·</span>
           <p className="text-gray-400 text-[12.6px] font-medium">Experience</p>
           <span className="text-gray-600">·</span>
           <div className="flex gap-0.5">
-            {[0,1,2,3,4].map((i) => (
-              <svg key={i} className="size-[12.6px]" viewBox="0 0 24 24" fill="#FFC107">
+            {[0, 1, 2, 3, 4].map((i) => (
+              <svg
+                key={i}
+                className="size-[12.6px]"
+                viewBox="0 0 24 24"
+                fill="#FFC107"
+              >
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
               </svg>
             ))}
@@ -154,9 +157,7 @@ export default function HeroSection() {
           </div>
 
           {/* Doctor Image */}
-          <div
-            className="pointer-events-none relative -bottom-4 z-10 h-[99%] w-[93%] origin-bottom scale-[1.1] md:-bottom-16 md:h-[95%] md:w-[90%] md:scale-[1.2]"
-          >
+          <div className="pointer-events-none relative -bottom-4 z-10 h-[99%] w-[93%] origin-bottom scale-[1.1] md:-bottom-16 md:h-[95%] md:w-[90%] md:scale-[1.2]">
             <Image
               src="/doctor.png"
               alt="Dr. Vikas Giri — Veneers and Cosmetic Dentist"
@@ -173,15 +174,34 @@ export default function HeroSection() {
             className="absolute bottom-[8%] left-1/2 z-20 flex w-max -translate-x-1/2 items-center rounded-full border border-white/10 bg-black/55 p-1 shadow-2xl backdrop-blur-2xl md:p-1.5"
             style={{ animation: "fadeUp 0.6s ease-out 0.8s both" }}
           >
-            <button onClick={() => document.getElementById('service')?.scrollIntoView({ behavior: 'smooth' })} className="group flex items-center gap-3 rounded-full bg-primary py-1 pl-5 pr-1 text-sm font-semibold text-[#141414] shadow-lg md:gap-4 md:py-1.5 md:pl-6 md:pr-1.5 md:text-base">
+            <button
+              onClick={() =>
+                document
+                  .getElementById("service")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="group flex items-center gap-3 rounded-full bg-primary py-1 pl-5 pr-1 text-sm font-semibold text-[#141414] shadow-lg md:gap-4 md:py-1.5 md:pl-6 md:pr-1.5 md:text-base"
+            >
               <span>View Services</span>
               <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full bg-black/80 md:h-[33px] md:w-[33px]">
-                <svg xmlns="http://www.w3.org/2000/svg" className="size-[15px] transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 md:size-[16.5px]" viewBox="0 -960 960 960" fill="white">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="size-[15px] transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 md:size-[16.5px]"
+                  viewBox="0 -960 960 960"
+                  fill="white"
+                >
                   <path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" />
                 </svg>
               </span>
             </button>
-            <button onClick={() => document.getElementById('booking-form')?.scrollIntoView({ behavior: 'smooth' })} className="rounded-full px-4 py-1 text-xs font-semibold text-white md:px-7 md:py-1.5 md:text-sm">
+            <button
+              onClick={() =>
+                document
+                  .getElementById("booking-form")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="rounded-full px-4 py-1 text-xs font-semibold text-white md:px-7 md:py-1.5 md:text-sm"
+            >
               Book Free Consultation
             </button>
           </div>
@@ -193,8 +213,8 @@ export default function HeroSection() {
           style={{ animation: "slideInRight 0.7s ease-out 0.4s both" }}
         >
           {/* Gold Stars */}
-          
-          <p className="text-white text-4xl xl:text-5xl font-extrabold leading-tight tracking-tight">
+
+          <p className="text-white text-4xl xl:text-5xl  leading-tight tracking-tight">
             23+ Years
           </p>
           <p className="text-gray-400 font-medium text-lg tracking-wide">

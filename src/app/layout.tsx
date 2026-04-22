@@ -49,7 +49,7 @@ const jsonLd = {
     'Dr. Vikas Giri is a veneers specialist and cosmetic dentist in Dubai with 23+ years of experience in smile design, veneers, implants, and advanced dental care.',
   url: 'https://drvikasgiri.vercel.app',
   telephone: '+971581049475',
-  email: 'contact@drvikas.com',
+  email: 'contact@drvikasgiri.com',
   image: 'https://drvikasgiri.vercel.app/doctor.png',
   priceRange: '$$',
   address: {

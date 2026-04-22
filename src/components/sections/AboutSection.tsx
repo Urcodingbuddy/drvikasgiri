@@ -1,23 +1,23 @@
-'use client';
+"use client";
 
-import { CalendarDays, Award, Microscope } from 'lucide-react';
-import Image from 'next/image';
+import { CalendarDays, Award, Microscope } from "lucide-react";
+import Image from "next/image";
 
 const highlights = [
   {
     icon: CalendarDays,
-    title: '23+ Years in Practice',
-    desc: 'Started in 2001 — seen it all, fixed most of it.',
+    title: "23+ Years in Practice",
+    desc: "Started in 2001 — seen it all, fixed most of it.",
   },
   {
     icon: Award,
-    title: 'International Fellowships',
-    desc: 'Fellow of the Royal College of Surgery, Liverpool and the International Council for Dental Research.',
+    title: "International Fellowships",
+    desc: "Fellow of the Royal College of Surgery, Liverpool and the International Council for Dental Research.",
   },
   {
     icon: Microscope,
-    title: 'Implant Specialist',
-    desc: 'Over 3,000 implants placed. No shortcuts, no surprises.',
+    title: "Veneers & Smile Specialist",
+    desc: "Over 3,000 Veneers & Smile . No shortcuts, no surprises.",
   },
 ];
 
@@ -28,7 +28,6 @@ export default function AboutSection() {
       <div className="pointer-events-none absolute -left-40 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-primary/5 blur-[120px]" />
 
       <div className="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-4 md:px-6 md:grid-cols-2 xl:gap-16 xl:px-12">
-
         {/* ── LEFT: Image ── */}
         <div data-reveal="left" className="relative">
           {/* Decorative corner frame */}
@@ -56,19 +55,20 @@ export default function AboutSection() {
               <Award className="size-4 text-primary" strokeWidth={1.5} />
             </div>
             <div>
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-primary">Credentials</p>
-              <p className="text-sm font-bold text-white">RCS Liverpool Fellow</p>
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-primary">
+                Credentials
+              </p>
+              <p className="text-sm  text-white">RCS Liverpool Fellow</p>
             </div>
           </div>
         </div>
 
         {/* ── RIGHT: Content ── */}
         <div data-reveal="right" className="flex flex-col gap-5">
-
           {/* Section label */}
           <div className="flex items-center gap-3">
             <span className="h-px w-8 bg-primary" />
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
+            <p className="text-xs  uppercase tracking-[0.2em] text-primary">
               About the Doctor
             </p>
           </div>
@@ -76,24 +76,28 @@ export default function AboutSection() {
           {/* Headline */}
           <div className="space-y-2">
             <h2 className="text-3xl leading-tight tracking-tight text-white xl:text-4xl">
-              Crafting Smiles,{' '}
-              <span className="text-primary">Restoring</span>{' '}
+              Crafting Smiles, <span className="text-primary">Restoring</span>{" "}
               Confidence
             </h2>
             <p className="text-sm leading-relaxed text-gray-400">
-              Dr. Vikas Giri has spent more than two decades refining the balance
-              between clinical precision and aesthetic dentistry. With a strong
-              focus on veneers, smile design, and advanced restorative care, he
-              creates naturally beautiful results tailored to each patient.
+              Dr. Vikas Giri has spent more than two decades refining the
+              balance between clinical precision and aesthetic dentistry. With a
+              strong focus on veneers, smile design, and advanced restorative
+              care, he creates naturally beautiful results tailored to each
+              patient.
             </p>
           </div>
 
           <div
             data-reveal
-            style={{ '--reveal-delay': '0.1s' } as React.CSSProperties}
+            style={{ "--reveal-delay": "0.1s" } as React.CSSProperties}
             className="flex flex-wrap gap-3"
           >
-            {['Hindi (Native)', 'English (Proficient)', 'Speaker at Dentathon, New Delhi'].map((item) => (
+            {[
+              "Hindi (Native)",
+              "English (Proficient)",
+              "Speaker at Dentathon, New Delhi",
+            ].map((item) => (
               <span
                 key={item}
                 className="rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold tracking-wide text-primary"
@@ -110,7 +114,11 @@ export default function AboutSection() {
                 key={title}
                 className="group flex items-center gap-4 rounded-xl border border-white/5 bg-[var(--color-surface-3)] px-4 py-3 transition-colors duration-200 hover:border-primary/30"
                 data-reveal
-                style={{ '--reveal-delay': `${0.15 + i * 0.1}s` } as React.CSSProperties}
+                style={
+                  {
+                    "--reveal-delay": `${0.15 + i * 0.1}s`,
+                  } as React.CSSProperties
+                }
               >
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors duration-200 group-hover:bg-primary/20">
                   <Icon className="size-4 text-primary" strokeWidth={1.5} />
@@ -120,8 +128,18 @@ export default function AboutSection() {
                   <p className="text-xs text-gray-400">{desc}</p>
                 </div>
                 <div className="ml-auto shrink-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-                  <svg className="size-4 text-primary" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <svg
+                    className="size-4 text-primary"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                  >
+                    <path
+                      d="M3 8h10M9 4l4 4-4 4"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </div>
               </li>
@@ -132,7 +150,12 @@ export default function AboutSection() {
           <div className="flex items-center gap-4">
             <a
               href="#contact"
-              onClick={(e) => { e.preventDefault(); document.getElementById('booking-form')?.scrollIntoView({ behavior: 'smooth' }); }}
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .getElementById("booking-form")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
               className="group flex items-center gap-2 rounded-full bg-primary px-7 py-2.5 text-sm font-semibold text-[#141414] shadow-lg transition-colors duration-200 hover:bg-[var(--color-primary-hover)]"
             >
               Book Consultation
@@ -147,7 +170,6 @@ export default function AboutSection() {
             </a>
           </div>
         </div>
-
       </div>
     </section>
   );

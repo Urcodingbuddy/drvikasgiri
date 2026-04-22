@@ -79,7 +79,7 @@ export default function TestimonialsSection() {
   return (
     <section className="max-w-6xl mx-auto px-4 md:px-6 py-16 md:py-24 overflow-hidden">
       <div data-reveal className="mb-12 text-center">
-        <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">
+        <p className="text-primary text-xs  uppercase tracking-[0.2em] mb-3">
           Patient Stories
         </p>
         <h2 className="text-4xl tracking-tight text-white">What They Say</h2>
@@ -92,13 +92,11 @@ export default function TestimonialsSection() {
         <div className="grid gap-6 lg:grid-cols-[0.34fr_0.66fr] lg:items-stretch">
           <div className="flex flex-col justify-between rounded-[1.5rem] border border-white/8 bg-[var(--color-surface-1)] p-5 md:p-6">
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-primary">
+              <p className="text-[10px]  uppercase tracking-[0.24em] text-primary">
                 Patient Rating
               </p>
               <div className="mt-4 flex items-end gap-2">
-                <span className="text-5xl font-bold tracking-tight text-white">
-                  4.9
-                </span>
+                <span className="text-5xl  tracking-tight text-white">4.9</span>
                 <span className="mb-1.5 text-sm text-gray-400">/ 5</span>
               </div>
               <div className="mt-2 flex gap-1">

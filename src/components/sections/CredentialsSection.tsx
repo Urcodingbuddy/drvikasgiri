@@ -1,32 +1,38 @@
-import { Award, GraduationCap, Mic, ShieldCheck, Stethoscope } from 'lucide-react';
+import {
+  Award,
+  GraduationCap,
+  Mic,
+  ShieldCheck,
+  Stethoscope,
+} from "lucide-react";
 
 const primaryCredential = {
-  label: 'Lead Fellowship',
-  title: 'Royal College of Surgery, Liverpool (UK)',
+  label: "Lead Fellowship",
+  title: "Royal College of Surgery, Liverpool (UK)",
   summary:
-    'A core marker of international clinical standing and one of the strongest trust signals in Dr. Vikas Giri’s profile.',
+    "A core marker of international clinical standing and one of the strongest trust signals in Dr. Vikas Giri’s profile.",
 };
 
 const supportingCredentials = [
   {
     icon: ShieldCheck,
-    label: 'Research Fellowship',
-    detail: 'International Council for Dental Research',
+    label: "Research Fellowship",
+    detail: "International Council for Dental Research",
   },
   {
     icon: GraduationCap,
-    label: 'Degree',
-    detail: 'BDS — Subharti Dental College, India',
+    label: "Degree",
+    detail: "BDS — Subharti Dental College, India",
   },
   {
     icon: Stethoscope,
-    label: 'Advanced Training',
-    detail: 'Endodontics, Implantology & Maxillofacial Rehabilitation',
+    label: "Advanced Training",
+    detail: "Endodontics, Implantology & Maxillofacial Rehabilitation",
   },
   {
     icon: Mic,
-    label: 'Speaker',
-    detail: 'Dentathon, New Delhi',
+    label: "Speaker",
+    detail: "Dentathon, New Delhi",
   },
 ];
 
@@ -41,16 +47,16 @@ export default function CredentialsSection() {
           >
             <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-primary/10 blur-3xl" />
             <div className="relative">
-              <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.28em] text-primary">
+              <p className="mb-3 text-[10px]  uppercase tracking-[0.28em] text-primary">
                 Credentials
               </p>
               <h2 className="max-w-xl text-3xl leading-tight tracking-tight text-white md:text-4xl">
                 Professional Credentials
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-relaxed text-gray-400">
-                The profile is anchored by internationally recognized fellowships,
-                advanced clinical certifications, and more than two decades of
-                cosmetic and restorative dental experience.
+                The profile is anchored by internationally recognized
+                fellowships, advanced clinical certifications, and more than two
+                decades of cosmetic and restorative dental experience.
               </p>
 
               <div className="mt-10 rounded-[1.5rem] border border-white/10 bg-black/25 p-6 backdrop-blur-sm">
@@ -58,7 +64,7 @@ export default function CredentialsSection() {
                   <Award className="size-5 text-primary" strokeWidth={1.6} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-primary">
+                  <p className="text-[10px]  uppercase tracking-[0.24em] text-primary">
                     {primaryCredential.label}
                   </p>
                   <h3 className="mt-2 text-xl leading-snug tracking-tight text-white md:text-2xl">
@@ -72,10 +78,13 @@ export default function CredentialsSection() {
             </div>
           </div>
 
-          <div data-reveal="right" style={{ '--reveal-delay': '0.08s' } as React.CSSProperties}>
+          <div
+            data-reveal="right"
+            style={{ "--reveal-delay": "0.08s" } as React.CSSProperties}
+          >
             <div className="mb-4 flex items-center gap-3">
               <span className="h-px w-8 bg-primary" />
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
+              <p className="text-xs  uppercase tracking-[0.2em] text-primary">
                 Supporting Credentials
               </p>
             </div>
@@ -85,7 +94,11 @@ export default function CredentialsSection() {
                 <article
                   key={`${label}-${detail}`}
                   data-reveal
-                  style={{ '--reveal-delay': `${0.12 + i * 0.08}s` } as React.CSSProperties}
+                  style={
+                    {
+                      "--reveal-delay": `${0.12 + i * 0.08}s`,
+                    } as React.CSSProperties
+                  }
                   className="rounded-[1.5rem] border border-white/6 bg-[var(--color-surface-3)] px-5 py-5 transition-colors duration-200 hover:border-primary/20"
                 >
                   <div className="flex items-start gap-4">
@@ -93,7 +106,7 @@ export default function CredentialsSection() {
                       <Icon className="size-4 text-primary" strokeWidth={1.6} />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-primary">
+                      <p className="text-[10px]  uppercase tracking-[0.22em] text-primary">
                         {label}
                       </p>
                       <p className="mt-2 text-base leading-relaxed tracking-tight text-white">

@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function WhyUsSection() {
   return (
@@ -7,10 +7,8 @@ export default function WhyUsSection() {
       <div className="pointer-events-none absolute -right-40 -top-20 h-[480px] w-[480px] rounded-full bg-primary/5 blur-[130px]" />
 
       <div className="relative mx-auto w-full max-w-6xl px-4 md:px-6 xl:px-12">
-
         {/* ── Top bento row ── */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-5">
-
           {/* Headline card — spans 3 cols */}
           <div
             data-reveal="left"
@@ -18,12 +16,13 @@ export default function WhyUsSection() {
           >
             <div className="flex items-center gap-3 mb-6">
               <span className="h-px w-8 bg-primary" />
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Why Choose Us</p>
+              <p className="text-xs  uppercase tracking-[0.2em] text-primary">
+                Why Choose Us
+              </p>
             </div>
             <div>
               <h2 className="text-3xl leading-tight tracking-tight text-white xl:text-4xl 2xl:text-5xl">
-                The Precision of a{' '}
-                <span className="text-primary">Master,</span>
+                The Precision of a <span className="text-primary">Master,</span>
                 <br />
                 The Comfort of Home
               </h2>
@@ -37,15 +36,15 @@ export default function WhyUsSection() {
             {/* Stat pill row */}
             <div className="mt-8 flex flex-wrap gap-3">
               {[
-                { value: '5,000+', label: 'Patients treated' },
-                { value: '3,000+', label: 'Implants placed' },
-                { value: '23+', label: 'Years of expertise' },
+                { value: "5,000+", label: "Patients treated" },
+                { value: "3,000+", label: "Veneers & Cosmetic" },
+                { value: "23+", label: "Years of expertise" },
               ].map(({ value, label }) => (
                 <div
                   key={label}
                   className="rounded-full border border-white/8 bg-[var(--color-surface-3)] px-4 py-2"
                 >
-                  <span className="text-sm font-bold text-white">{value}</span>
+                  <span className="text-sm  text-white">{value}</span>
                   <span className="ml-1.5 text-xs text-gray-400">{label}</span>
                 </div>
               ))}
@@ -55,7 +54,7 @@ export default function WhyUsSection() {
           {/* Clinic image card — spans 2 cols */}
           <div
             data-reveal="right"
-            style={{ '--reveal-delay': '0.1s' } as React.CSSProperties}
+            style={{ "--reveal-delay": "0.1s" } as React.CSSProperties}
             className="relative overflow-hidden rounded-3xl md:col-span-2 min-h-[260px] md:min-h-0"
           >
             <Image
@@ -72,14 +71,12 @@ export default function WhyUsSection() {
               <p className="text-xs font-semibold uppercase tracking-widest text-primary">
                 Our Clinic
               </p>
-              <p className="mt-0.5 text-sm font-bold text-white">
+              <p className="mt-0.5 text-sm  text-white">
                 State-of-the-Art Facility
               </p>
             </div>
           </div>
         </div>
-
-
       </div>
     </section>
   );

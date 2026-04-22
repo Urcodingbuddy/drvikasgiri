@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 const stats = [
   { target: 23,   suffix: '+', label: 'Years Experience' },
   { target: 5000, suffix: '+', label: 'Patients Served' },
-  { target: 3000, suffix: '+', label: 'Implants Placed' },
+  { target: 3000, suffix: '+', label: 'Veneers & Cosmetic' },
   { target: 2,    suffix: '', label: 'Languages Spoken' },
 ];
 
@@ -53,7 +53,7 @@ function StatCard({ target, suffix, label, delay }: {
       data-reveal="scale"
       style={{ '--reveal-delay': `${delay}s` } as React.CSSProperties}
     >
-      <div className="text-4xl md:text-5xl font-extrabold text-primary mb-2 tracking-tight tabular-nums">
+      <div className="text-4xl md:text-5xl text-primary mb-2 tracking-tight tabular-nums">
         {count.toLocaleString()}{suffix}
       </div>
       <div className="text-[10px] text-gray-500 uppercase tracking-[0.2em]">

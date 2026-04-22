@@ -1,38 +1,38 @@
-'use client';
+"use client";
 
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 const contactInfo = [
   {
     icon: Phone,
-    label: 'Call / WhatsApp',
-    value: '+971 58 104 9475',
+    label: "Call / WhatsApp",
+    value: "+971 58 104 9475",
   },
   {
     icon: Mail,
-    label: 'Email',
-    value: 'contact@drvikas.com',
+    label: "Email",
+    value: "contact@drvikasgiri.com",
   },
   {
     icon: MapPin,
-    label: 'Location',
-    value: 'Dubai Silicon Oasis, UAE',
+    label: "Location",
+    value: "Dubai Silicon Oasis, UAE",
   },
 ];
 
 const hours = [
-  { day: 'Monday – Friday', time: '8:00 am – 8:00 pm' },
-  { day: 'Saturday', time: '8:00 am – 8:00 pm' },
-  { day: 'Sunday', time: '10:00 am – 6:00 pm' },
+  { day: "Monday – Friday", time: "8:00 am – 8:00 pm" },
+  { day: "Saturday", time: "8:00 am – 8:00 pm" },
+  { day: "Sunday", time: "10:00 am – 6:00 pm" },
 ];
 
 const services = [
-  'Teeth Whitening',
-  'Dental Implants',
-  'Root Canal',
-  'Laser Dentistry',
-  'Pediatric Dentistry',
-  'Other',
+  "Teeth Whitening",
+  "Dental Implants",
+  "Root Canal",
+  "Laser Dentistry",
+  "Pediatric Dentistry",
+  "Other",
 ];
 
 export default function ContactSection() {
@@ -40,18 +40,20 @@ export default function ContactSection() {
     <section className="max-w-6xl mx-auto px-4 md:px-6 py-16 md:py-24 overflow-hidden grid md:grid-cols-2 gap-10 md:gap-16">
       {/* Left — contact info */}
       <div data-reveal="left">
-        <p 
-        className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">
+        <p className="text-primary text-xs  uppercase tracking-[0.2em] mb-3">
           Get in Touch
         </p>
-        <h2
-        className="text-4xl tracking-tight text-white mb-12 leading-tight">
+        <h2 className="text-4xl tracking-tight text-white mb-12 leading-tight">
           Book Your Consultation
         </h2>
 
         <div className="space-y-8">
           {contactInfo.map(({ icon: Icon, label, value }) => (
-            <div key={label} id={label === 'Location' ? 'book-mobile' : undefined} className="flex items-start gap-5">
+            <div
+              key={label}
+              id={label === "Location" ? "book-mobile" : undefined}
+              className="flex items-start gap-5"
+            >
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                 <Icon className="size-4 text-primary" strokeWidth={1.5} />
               </div>
@@ -74,7 +76,10 @@ export default function ContactSection() {
               </div>
               <div className="space-y-1.5">
                 {hours.map(({ day, time }) => (
-                  <div key={day} className="flex items-center justify-between gap-6 text-sm">
+                  <div
+                    key={day}
+                    className="flex items-center justify-between gap-6 text-sm"
+                  >
                     <span className="text-gray-400">{day}</span>
                     <span className="text-white shrink-0">{time}</span>
                   </div>
@@ -89,7 +94,7 @@ export default function ContactSection() {
       <div
         id="booking-form"
         data-reveal="right"
-        style={{ '--reveal-delay': '0.1s' } as React.CSSProperties}
+        style={{ "--reveal-delay": "0.1s" } as React.CSSProperties}
         className="bg-[var(--color-surface-2)] border border-white/5 rounded-2xl p-8"
       >
         <form
@@ -97,14 +102,20 @@ export default function ContactSection() {
           onSubmit={(e) => {
             e.preventDefault();
             const form = e.currentTarget;
-            const name = (form.elements.namedItem('name') as HTMLInputElement).value.trim();
-            const service = (form.elements.namedItem('service') as HTMLSelectElement).value;
-            const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value.trim();
+            const name = (
+              form.elements.namedItem("name") as HTMLInputElement
+            ).value.trim();
+            const service = (
+              form.elements.namedItem("service") as HTMLSelectElement
+            ).value;
+            const message = (
+              form.elements.namedItem("message") as HTMLTextAreaElement
+            ).value.trim();
 
-            const intro = 'Hi Dr. Vikas, I would like to book a consultation.';
-            const text = `${intro}\n\nMy name is ${name}.\nI am interested in: ${service}.${message ? `\n\n${message}` : ''}`;
+            const intro = "Hi Dr. Vikas, I would like to book a consultation.";
+            const text = `${intro}\n\nMy name is ${name}.\nI am interested in: ${service}.${message ? `\n\n${message}` : ""}`;
             const url = `https://wa.me/971581049475?text=${encodeURIComponent(text)}`;
-            window.open(url, '_blank');
+            window.open(url, "_blank");
           }}
         >
           <div className="space-y-1.5">
@@ -147,7 +158,7 @@ export default function ContactSection() {
           </div>
           <button
             type="submit"
-            className="w-full bg-primary text-[#141414] py-3.5 rounded-full font-bold uppercase tracking-widest text-xs hover:brightness-110 active:scale-95 transition-all duration-200 mt-2"
+            className="w-full bg-primary text-[#141414] py-3.5 rounded-full  uppercase tracking-widest text-xs hover:brightness-110 active:scale-95 transition-all duration-200 mt-2"
           >
             Book on WhatsApp
           </button>
