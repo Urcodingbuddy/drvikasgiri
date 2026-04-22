@@ -17,7 +17,7 @@ const greatVibes = Great_Vibes({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://drvikasgiri.vercel.app'),
+  metadataBase: new URL('https://www.drvikasgiri.com'),
   title: 'Dr. Vikas Giri | Veneers & Cosmetic Dentist, Dubai',
   description:
     "Dr. Vikas Giri is a veneers specialist and cosmetic dentist in Dubai with 23+ years of experience in smile design, veneers, implants, and advanced dental care.",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: 'Dr. Vikas Giri | Veneers & Cosmetic Dentist, Dubai',
     description:
       "Experience refined cosmetic dentistry with Dr. Vikas Giri in Dubai. Veneers, smile makeovers, implants, and advanced dental care backed by 23+ years of excellence.",
-    url: 'https://drvikasgiri.vercel.app',
+    url: 'https://www.drvikasgiri.com',
     siteName: 'Dr. Vikas Giri',
     locale: 'en_US',
     type: 'website',
@@ -47,10 +47,10 @@ const jsonLd = {
   name: 'Dr. Vikas Giri',
   description:
     'Dr. Vikas Giri is a veneers specialist and cosmetic dentist in Dubai with 23+ years of experience in smile design, veneers, implants, and advanced dental care.',
-  url: 'https://drvikasgiri.vercel.app',
+  url: 'https://www.drvikasgiri.com',
   telephone: '+971581049475',
   email: 'contact@drvikasgiri.com',
-  image: 'https://drvikasgiri.vercel.app/doctor.png',
+  image: 'https://www.drvikasgiri.com/doctor.png',
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
