@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
+  other: {
+    'og:logo': 'https://www.drvikasgiri.com/logo.png',
+  },
   twitter: {
     card: 'summary_large_image',
     title: 'Dr. Vikas Giri | Veneers & Cosmetic Dentist, Dubai',
