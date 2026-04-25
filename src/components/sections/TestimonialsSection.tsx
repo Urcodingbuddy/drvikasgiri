@@ -13,6 +13,56 @@ const testimonials = [
       "I had my whitening done today with Dr. Vikas, and I just want to sincerely thank him for his professionalism and attention to detail. He was incredibly kind, made me feel comfortable throughout the entire process, and truly took the time to ensure I got the best possible result. I really appreciate the care and effort he put into everything.",
     name: "Ayette Mezni",
   },
+  {
+    quote:
+      "My overall experience is very good. He is quite knowledgeable and having long experiences. He is quite familiar with modern techniques.",
+    name: "Dharmendra Routray",
+  },
+  {
+    quote:
+      "I recently completed my aligner treatment with Dr. Vikas, and I couldn't be happier with the results! From day one, the entire process was smooth, professional, and completely stress-free. What really stands out is the technology used at the clinic and Dr. Vikas's genuine passion for his work. He makes sure you are comfortable throughout every appointment, and his attention to detail is reflected in the perfect results I'm seeing now. If you are looking for top-tier dental care in Dubai, I highly recommend visiting him. You definitely won't be disappointed!",
+    name: "Plaksha",
+  },
+  {
+    quote:
+      "I had a wonderful experience with Dr. Vikas Giri. He took the time to explain the entire process, which made me feel at ease during every appointment. The results of my treatment are excellent and I highly recommend his services to anyone in Dubai looking for a reliable dentist.",
+    name: "Rajesh Kumar",
+  },
+  {
+    quote:
+      "Fantastic experience with Dr. Vikas! They treated my 6-year-old for a descaling procedure and were professional, gentle, and very efficient. The office has a great atmosphere for kids. My son actually enjoyed his visit — which is a huge win for any parent!",
+    name: "Santhosh Kumar",
+  },
+  {
+    quote:
+      "So happy to have one experienced yet vocal Dentist Dr Vikas Giri in our surrounding. He has given me all the knowledge required well in advance and was available throughout the treatment. Highly recommend.",
+    name: "Aprajita Dewan",
+  },
+  {
+    quote:
+      "Thank you for your professionalism and gentle care — you made the experience truly comfortable.",
+    name: "Niks Sharma",
+  },
+  {
+    quote:
+      "I got both my children's treatment done through Dr. Vikas. I found him to be extremely kind and caring. And also very good with his work. My daughter has got her teeth aligned through the use of invisible tooth aligners designed by Dr. Vikas. Highly recommended especially for crooked teeth.",
+    name: "Abhilasha Goswami",
+  },
+  {
+    quote:
+      "Dr. Vikas was incredibly kind and patient with my daughter, Thwisha, while she was getting a tooth extracted. What could have been a scary experience for a child was completely stress-free because of how gentle and caring the doctor was. Highly recommended.",
+    name: "Ayyanar Karthick",
+  },
+  {
+    quote:
+      "Dr Vikas is an amazing dentist and someone our entire family trusts completely. Extremely patient, gentle and reassuring especially with children. The quality of care, cleanliness of the clinic and overall experience are excellent. Highly recommend him for anyone looking for a trusted and skilled dentist.",
+    name: "Jayasree Santhosh",
+  },
+  {
+    quote:
+      "If you are looking for a dentist who is both highly skilled and incredibly kind, Dr. Vikas Giri is the one to see. He treated me with great care and professionalism during my recent visit. It's rare to find a doctor who makes you feel so at ease during dental work. Thank you, Dr. Vikas, for the wonderful care!",
+    name: "Bennet Joshua",
+  },
 ];
 
 function Stars() {
