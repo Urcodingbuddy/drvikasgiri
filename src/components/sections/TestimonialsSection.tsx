@@ -82,7 +82,7 @@ function Stars() {
   );
 }
 
-const LIMIT = 107;
+const LIMIT = 100;
 
 function QuoteText({ quote }: { quote: string }) {
   const [expanded, setExpanded] = useState(false);
