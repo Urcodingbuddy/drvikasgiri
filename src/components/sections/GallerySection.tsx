@@ -55,6 +55,7 @@ export default function GallerySection() {
                     src={img.src}
                     alt={img.alt}
                     fill
+                    priority={i < 3}
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 50vw, 33vw"
                   />
