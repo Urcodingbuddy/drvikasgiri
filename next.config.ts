@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+const isDev = process.env.NODE_ENV === 'development';
+
 const nextConfig: NextConfig = {
   allowedDevOrigins: ['192.168.29.18'],
   images: {
@@ -11,6 +13,10 @@ const nextConfig: NextConfig = {
     ],
   },
   async headers() {
+    // 'unsafe-eval' is required by React in dev mode for stack trace reconstruction.
+    // It is intentionally excluded from production.
+    const evalPolicy = isDev ? " 'unsafe-eval'" : '';
+
     return [
       {
         // Apply CSP to all routes
@@ -22,9 +28,9 @@ const nextConfig: NextConfig = {
               // Default — restrictive fallback
               "default-src 'self'",
               // Scripts: self + GTM + GA4 inline boot snippet
-              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://tagmanager.google.com",
+              `script-src 'self' 'unsafe-inline'${evalPolicy} https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://tagmanager.google.com`,
               // Script elements (stricter browsers honour this separately)
-              "script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://tagmanager.google.com",
+              `script-src-elem 'self' 'unsafe-inline'${evalPolicy} https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://tagmanager.google.com`,
               // Styles: self + inline (needed by GTM previews & fonts)
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://tagmanager.google.com",
               // Web fonts
