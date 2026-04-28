@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 import { logoDataUri } from './logo-data'
 
-export const runtime = 'edge'
+export const runtime = 'nodejs'
 export const alt = 'Dr. Vikas Giri | Veneers & Cosmetic Dentist, Dubai'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
