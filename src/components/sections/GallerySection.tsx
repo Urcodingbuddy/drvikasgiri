@@ -21,7 +21,7 @@ export default function GallerySection() {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <section className="bg-[var(--color-surface-lowest)] py-16 md:py-24 overflow-hidden">
+    <section className="bg-[#0A0A0A] py-16 md:py-24 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         <div data-reveal className="text-center mb-12">
           <p className="text-primary text-xs  uppercase tracking-[0.2em] mb-3">
