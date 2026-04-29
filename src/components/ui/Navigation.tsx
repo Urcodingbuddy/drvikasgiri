@@ -163,10 +163,11 @@ export default function Navigation() {
               onClick={() => handleNav("Home")}
             >
               <span
-                className="text-3xl text-primary"
+                className="flex items-center gap-2 text-3xl text-primary"
                 style={{ fontFamily: "var(--font-cursive)" }}
               >
-                Dr. Vikas
+                <img src="/logo_no_bg.png" alt="Dr. Vikas" className="w-10 h-10 object-contain" />
+                <span className="translate-y-1 inline-block">Dr. Vikas</span>
               </span>
             </div>
             <div className="relative z-10 flex items-center gap-1">
