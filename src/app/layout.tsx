@@ -101,7 +101,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={`${outfit.className} ${greatVibes.variable}`}>
-      <head>
+      <body className="antialiased bg-background">
         {/* Google Tag Manager */}
         <Script
           id="gtm-script"
@@ -115,8 +115,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
         {/* End Google Tag Manager */}
-      </head>
-      <body className="antialiased bg-background">
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
