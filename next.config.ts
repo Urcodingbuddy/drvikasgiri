@@ -28,17 +28,17 @@ const nextConfig: NextConfig = {
               // Default — restrictive fallback
               "default-src 'self'",
               // Scripts: self + GTM + GA4 inline boot snippet
-              `script-src 'self' 'unsafe-inline'${evalPolicy} https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://tagmanager.google.com`,
+              `script-src 'self' 'unsafe-inline'${evalPolicy} https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://tagmanager.google.com https://googleads.g.doubleclick.net https://www.googleadservices.com`,
               // Script elements (stricter browsers honour this separately)
-              `script-src-elem 'self' 'unsafe-inline'${evalPolicy} https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://tagmanager.google.com`,
+              `script-src-elem 'self' 'unsafe-inline'${evalPolicy} https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://tagmanager.google.com https://googleads.g.doubleclick.net https://www.googleadservices.com`,
               // Styles: self + inline (needed by GTM previews & fonts)
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://tagmanager.google.com",
               // Web fonts
               "font-src 'self' https://fonts.gstatic.com",
               // Images: self + GA beacon + GTM preview + Google consent beacons + data URIs
-              "img-src 'self' data: https://www.google-analytics.com https://ssl.google-analytics.com https://www.googletagmanager.com https://www.google.com https://lh3.googleusercontent.com",
+              "img-src 'self' data: https://www.google-analytics.com https://ssl.google-analytics.com https://www.googletagmanager.com https://www.google.com https://lh3.googleusercontent.com https://googleads.g.doubleclick.net https://www.googleadservices.com",
               // Outbound XHR/fetch: GA4 measurement endpoints + GTM + Google consent/ads measurement
-              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://region1.google-analytics.com https://www.googletagmanager.com https://www.google.com",
+              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://region1.google-analytics.com https://www.googletagmanager.com https://www.google.com https://googleads.g.doubleclick.net https://www.googleadservices.com",
               // Frames: GTM noscript iframe
               "frame-src https://www.googletagmanager.com",
             ].join('; '),
