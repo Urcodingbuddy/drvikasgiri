@@ -47,7 +47,7 @@ export function BookingForm() {
           phone: values.phone,
           service: values.treatment,
           message: `Health Concern: ${values.concern}\nPreferred Date: ${values.preferredDate || "Not provided"}`,
-          subject: `Ad Campaign Booking Request from ${values.name}`,
+          subject: `An Appointment for ${values.treatment} by ${values.name}`,
           from_name: "Dr. Vikas Giri Website Ad Flow",
         }),
       });

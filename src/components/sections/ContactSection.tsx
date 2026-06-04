@@ -79,7 +79,7 @@ export default function ContactSection() {
           phone,
           service,
           message,
-          subject: `Consultation Booking Request from ${name}`,
+          subject: `An Appointment for ${service} by ${name}`,
           from_name: "Dr. Vikas Giri Website",
         }),
       });
