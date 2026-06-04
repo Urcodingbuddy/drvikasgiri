@@ -1,4 +1,4 @@
-import { WhatsAppForm } from "@/components/whatsapp-form";
+import { BookingForm } from "@/components/booking-form";
 
 export default function ContactPage() {
   return (
@@ -6,12 +6,11 @@ export default function ContactPage() {
       <section className="luxury-panel p-8 sm:p-12">
         <p className="luxury-kicker">Consultation Booking</p>
         <h1 className="mt-4 font-serif-display text-4xl leading-tight text-[#e5e2e1] sm:text-5xl md:text-6xl">
-          Send every lead to WhatsApp with the full case summary.
+          Book your premium consultation online.
         </h1>
         <p className="mt-5 max-w-xl text-base leading-7 text-[#d0c5b5] sm:text-lg sm:leading-8">
-          This flow is built for marketing campaigns. The visitor fills the
-          fields once, and your WhatsApp chat opens with all important inquiry
-          details already formatted.
+          This booking system is designed for quick and seamless scheduling. Fill in your details 
+          below, and Dr. Vikas Giri's team will get back to you shortly to confirm your session.
         </p>
 
         <div className="mt-10 grid gap-4">
@@ -28,7 +27,7 @@ export default function ContactPage() {
               Preferred Response
             </p>
             <p className="mt-2 text-lg font-semibold text-[#e5e2e1]">
-              WhatsApp first, callback if needed
+              Fast email or callback confirmation
             </p>
           </div>
           <div className="rounded-3xl border border-white/6 bg-[#252525] p-5">
@@ -42,7 +41,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <WhatsAppForm />
+      <BookingForm />
     </div>
   );
 }
