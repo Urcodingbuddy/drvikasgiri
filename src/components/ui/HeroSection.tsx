@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { openBookingModal } from "@/components/BookingModal";
 
 const quoteWords = [
   "Where",
@@ -195,11 +196,7 @@ export default function HeroSection() {
               </span>
             </button>
             <button
-              onClick={() =>
-                document
-                  .getElementById("booking-form")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
+              onClick={openBookingModal}
               className="rounded-full px-4 py-1 text-xs font-semibold text-white md:px-7 md:py-1.5 md:text-sm"
             >
               Book Free Consultation

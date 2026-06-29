@@ -1,3 +1,7 @@
+"use client";
+
+import { openBookingModal } from "@/components/BookingModal";
+
 export default function CTASection() {
   return (
     <section className="max-w-6xl mx-auto px-4 md:px-6 py-16 md:py-24 overflow-hidden">
@@ -20,7 +24,10 @@ export default function CTASection() {
             Your transformation begins with a conversation. Experience dental
             artistry tailored to your identity.
           </p>
-          <button className="bg-primary text-[#141414] px-10 md:px-12 py-3.5 md:py-4 rounded-full  uppercase tracking-[0.15em] text-sm hover:shadow-[0_0_40px_rgba(236,176,68,0.35)] active:scale-95 transition-all duration-200">
+          <button
+            onClick={openBookingModal}
+            className="bg-primary text-[#141414] px-10 md:px-12 py-3.5 md:py-4 rounded-full  uppercase tracking-[0.15em] text-sm hover:shadow-[0_0_40px_rgba(236,176,68,0.35)] active:scale-95 transition-all duration-200 cursor-pointer"
+          >
             Book Now
           </button>
         </div>

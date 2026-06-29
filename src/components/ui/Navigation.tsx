@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { openBookingModal } from "@/components/BookingModal";
 
 const navLinks = [
   "Home",
@@ -106,6 +107,9 @@ export default function Navigation() {
     isManualNav.current = true;
     const id = navToSection[link];
     if (id) document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+
+    // Contact also pops the booking form open (and changes the URL for tracking)
+    if (link === "Contact") openBookingModal();
 
     let scrollTimer: ReturnType<typeof setTimeout>;
     const onScroll = () => {
@@ -261,9 +265,7 @@ export default function Navigation() {
                 <button
                   onClick={() => {
                     setMenuOpen(false);
-                    document
-                      .getElementById("book-mobile")
-                      ?.scrollIntoView({ behavior: "smooth" });
+                    openBookingModal();
                   }}
                   className="group w-full flex items-center justify-between rounded-full bg-primary py-1 pl-5 pr-1 text-sm font-semibold text-[#141414] shadow-lg"
                 >

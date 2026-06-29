@@ -4,6 +4,7 @@ import Script from 'next/script'
 import './globals.css'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import FloatingActions from '@/components/ui/FloatingActions'
+import BookingModal from '@/components/BookingModal'
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -131,6 +132,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
         <ScrollReveal />
         <FloatingActions />
+        <BookingModal />
         {children}
       </body>
     </html>

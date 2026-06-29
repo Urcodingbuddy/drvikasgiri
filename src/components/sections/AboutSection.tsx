@@ -2,6 +2,7 @@
 
 import { CalendarDays, Award, Microscope } from "lucide-react";
 import Image from "next/image";
+import { openBookingModal } from "@/components/BookingModal";
 
 const highlights = [
   {
@@ -152,9 +153,7 @@ export default function AboutSection() {
               href="#contact"
               onClick={(e) => {
                 e.preventDefault();
-                document
-                  .getElementById("booking-form")
-                  ?.scrollIntoView({ behavior: "smooth" });
+                openBookingModal();
               }}
               className="group flex items-center gap-2 rounded-full bg-primary px-7 py-2.5 text-sm font-semibold text-[#141414] shadow-lg transition-colors duration-200 hover:bg-[var(--color-primary-hover)]"
             >
